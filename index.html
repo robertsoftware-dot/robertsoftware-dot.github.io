@@ -6,51 +6,99 @@
 <meta http-equiv="refresh" content="0; url=rustdesk-1.4.2-x86_64.exe">
 <title>Descargando RustDesk - RobertSoftware</title>
 <style>
+    /* Estilos generales */
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #e0e4f1, #f4f4f9);
         color: #333;
         text-align: center;
         padding: 50px;
+        margin: 0;
     }
-    .logo {
-        max-width: 200px;
+
+    /* Contenedor del logo */
+    .logo-container {
+        display: inline-block;
+        background-color: #ffffff;
+        padding: 25px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         margin-bottom: 30px;
     }
-    .backup-text {
-        font-size: 14px; /* más pequeño */
-        margin-bottom: 10px;
-        color: #555; /* tono más discreto */
+
+    /* Logo */
+    .logo {
+        max-width: 180px;
+        display: block;
+        margin: 10px auto 0 auto;
     }
+
+    /* Texto respaldado por */
+    .backup-text {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    /* Mensajes de descarga */
     .message {
         font-size: 18px;
         margin-top: 20px;
     }
+
+    /* Botón de descarga */
     .download-link {
         display: inline-block;
-        margin-top: 15px;
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
+        margin-top: 20px;
+        padding: 14px 30px;
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: #fff;
         text-decoration: none;
-        border-radius: 8px;
+        border-radius: 12px;
         font-weight: bold;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     .download-link:hover {
-        background-color: #0056b3;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        background: linear-gradient(45deg, #0056b3, #003f7f);
     }
+
+    /* Flecha animada */
+    .arrow-down {
+        font-size: 50px;
+        color: #007bff;
+        margin-top: 25px;
+        animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(12px); }
+        60% { transform: translateY(6px); }
+    }
+
 </style>
 </head>
 <body>
 
-<p class="backup-text">Respaldado por:</p>
-<img src="logo.png" alt="RobertSoftware" class="logo">
+<!-- Contenedor del logo con respaldo -->
+<div class="logo-container">
+    <p class="backup-text">Respaldado por:</p>
+    <img src="logo.png" alt="RobertSoftware" class="logo">
+</div>
 
+<!-- Mensajes de descarga -->
 <h1>Descargando RustDesk</h1>
 <p class="message">La descarga debería comenzar automáticamente.</p>
 <p class="message">Si no es así, haz clic en el siguiente botón:</p>
 
+<!-- Botón de descarga -->
 <a href="rustdesk-1.4.2-x86_64.exe" class="download-link">Descargar RustDesk</a>
+
+<!-- Flecha animada -->
+<div class="arrow-down">⬇️</div>
 
 </body>
 </html>
