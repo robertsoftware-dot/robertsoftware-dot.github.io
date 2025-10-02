@@ -40,11 +40,11 @@
     .download-link:hover {
         background-color: #0056b3;
     }
-    /* GIF flecha en la esquina superior derecha */
+    /* GIF flecha en la esquina superior derecha, movido un poco a la izquierda */
     .arrow-top {
         position: fixed;
         top: 20px;
-        right: 20px;
+        right: 60px;       /* ajusta este valor para mover hacia la izquierda */
         width: 50px;       /* ajustar tamaño según GIF */
         z-index: 1000;
         pointer-events: none; /* para que no interfiera con clics */
@@ -54,7 +54,7 @@
 <body>
 
 <!-- GIF flecha apuntando hacia la descarga -->
-<img src="flecha-arriba.gif" alt="Descargando" class="arrow-top">
+<img src="flecha-arriba.gif" alt="" class="arrow-top">
 
 <p class="backup-text">Respaldado por:</p>
 <img src="logo.png" alt="RobertSoftware" class="logo">
