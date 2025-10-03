@@ -304,7 +304,7 @@
     // CounterAPI para Windows
     document.getElementById('btnWin').addEventListener('click', e => {
         e.preventDefault();
-        fetch("https://api.counterapi.dev/v2/rs/Win/increment")
+        fetch("https://api.counterapi.dev/v2/rs/Win?amount=1")
             .then(res => res.json())
             .then(data => {
                 console.log("Contador Windows actualizado:", data);
@@ -316,7 +316,7 @@
     // CounterAPI para macOS
     document.getElementById('btnMac').addEventListener('click', e => {
         e.preventDefault();
-        fetch("https://api.counterapi.dev/v2/rs/Mac/increment")
+        fetch("https://api.counterapi.dev/v2/rs/Mac?amount=1")
             .then(res => res.json())
             .then(data => {
                 console.log("Contador Mac actualizado:", data);
