@@ -6,13 +6,19 @@
 <title>Descargar RustDesk - RobertSoftware</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
-    body {
+    html, body {
+        height: 100%;
+        margin: 0;
         font-family: Arial, sans-serif;
         background-color: #e6eefb;
         color: #333;
+        display: flex;
+        flex-direction: column;
         text-align: center;
+    }
+
+    body {
         padding: 40px 20px;
-        margin: 0;
     }
 
     .logo {
@@ -77,10 +83,9 @@
     }
 
     footer {
-        margin-top: 30px;
+        margin-top: auto; /* empuja el footer al final */
         font-size: 14px;
         color: #555;
-        text-align: center;
         background-color: #e6eefb;
         padding: 15px 10px;
         line-height: 1.4;
