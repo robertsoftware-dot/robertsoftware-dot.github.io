@@ -17,6 +17,39 @@
         min-height: 100vh;
     }
 
+    /* Cinta superior animada */
+    .top-ribbon {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #cfd8e7; /* color más claro y minimalista */
+        color: #1a1a1a;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        z-index: 2000;
+        overflow: hidden;
+    }
+
+    .top-ribbon img {
+        height: 24px; /* espacio para el logo RustDesk */
+    }
+
+    .top-ribbon span {
+        display: inline-block;
+        animation: scroll-text 15s linear infinite;
+    }
+
+    @keyframes scroll-text {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
     .logo {
         max-width: 180px;
         margin-bottom: 20px;
@@ -87,7 +120,6 @@
         100% { transform: translateY(-8px); }
     }
 
-    /* Carrusel de imágenes */
     .carousel {
         overflow: hidden;
         width: 100%;
@@ -136,54 +168,20 @@
         color: #004080;
     }
 
-    /* Ajuste solo para móviles */
     @media (max-width: 600px) {
         .download-link {
             width: 80%;
             font-size: 18px;
         }
     }
-
-    /* Cinta corporativa */
-    .corporate-ticker {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #003366;
-        overflow: hidden;
-        height: 40px;
-        z-index: 9999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .ticker-text {
-        display: inline-block;
-        white-space: nowrap;
-        color: #ffffff;
-        font-weight: 600;
-        font-family: 'Arial', sans-serif;
-        font-size: 16px;
-        padding-left: 100%;
-        animation: scrollTicker 20s linear infinite;
-    }
-
-    @keyframes scrollTicker {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
 </style>
 </head>
 <body>
 
-<!-- Cinta corporativa -->
-<div class="corporate-ticker">
-  <div class="ticker-text">
-    Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.
-  </div>
+<!-- Cinta superior -->
+<div class="top-ribbon">
+    <img src="rustdesk-logo.png" alt="RustDesk Logo">
+    <span>Distribución oficial y segura de RustDesk por Robert Software - ¡Descargue la versión más reciente directamente desde GitHub!</span>
 </div>
 
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
@@ -206,7 +204,6 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes -->
 <div class="carousel">
     <div class="carousel-track">
         <img src="1.jpg" alt="RustDesk 1">
