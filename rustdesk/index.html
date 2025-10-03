@@ -6,23 +6,18 @@
 <title>Descargar RustDesk - RobertSoftware</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
-    html, body {
-        height: 100%;
-        margin: 0;
+    body {
         font-family: Arial, sans-serif;
         background-color: #e6eefb;
         color: #333;
         text-align: center;
-        position: relative; /* para que el footer absoluto funcione */
-    }
-
-    body {
-        padding: 40px 20px 100px; /* espacio inferior para que el footer no tape contenido */
+        padding: 40px 20px;
+        margin: 0;
     }
 
     .logo {
         max-width: 180px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     .backup-text {
@@ -43,25 +38,15 @@
         margin-top: 15px;
         line-height: 1.5;
         color: #333;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .download-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
     }
 
     .download-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 14px 30px;
+        gap: 8px;
+        margin: 10px;
+        padding: 12px 25px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
@@ -92,11 +77,10 @@
     }
 
     footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+        margin-top: 30px;
         font-size: 14px;
         color: #555;
+        text-align: center;
         background-color: #e6eefb;
         padding: 15px 10px;
         line-height: 1.4;
@@ -124,17 +108,15 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<div class="download-links">
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-       class="download-link" id="btnWin" download>
-       <img src="windows.svg" alt="Windows"> Descargar para Windows
-    </a>
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+   class="download-link" id="btnWin" download>
+   <img src="windows.svg" alt="Windows"> Descargar para Windows
+</a>
 
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-       class="download-link" id="btnMac" download>
-       <img src="macos.svg" alt="macOS"> Descargar para macOS
-    </a>
-</div>
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+   class="download-link" id="btnMac" download>
+   <img src="macos.svg" alt="macOS"> Descargar para macOS
+</a>
 
 <script>
     const gif = document.getElementById('downloadGif');
