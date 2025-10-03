@@ -15,6 +15,8 @@
         margin: 0;
         position: relative;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
     .logo {
@@ -78,7 +80,7 @@
         display: none;
     }
 
-    /* Carrusel mejorado */
+    /* Carrusel de imágenes */
     .carousel {
         overflow: hidden;
         width: 100%;
@@ -86,34 +88,27 @@
         margin: 30px auto;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        background-color: #e6eefb;
     }
 
     .carousel-track {
         display: flex;
-        width: calc(8 * 100% / 4); /* 8 imágenes (duplicadas) */
-        animation: scroll 20s linear infinite;
+        width: calc(4 * 100%);
+        animation: scroll 16s linear infinite;
     }
 
     .carousel-track img {
-        flex: 0 0 25%; /* cada imagen ocupa 25% del contenedor */
-        max-width: 100%;
+        width: 25%;
         height: auto;
         border-radius: 12px;
-        object-fit: contain;
-        margin: 0 5px; /* pequeño espacio entre imágenes */
     }
 
     @keyframes scroll {
         0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); } /* mueve hasta la mitad para repetir */
+        100% { transform: translateX(-75%); }
     }
 
+    /* Footer */
     footer {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
         font-size: 14px;
         color: #555;
         text-align: center;
@@ -121,6 +116,7 @@
         padding: 10px 20px;
         line-height: 1.4;
         max-width: 800px;
+        margin-top: auto; /* Empuja el footer al final */
     }
 
     footer a {
@@ -130,6 +126,21 @@
 
     footer a:hover {
         text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+        .download-link {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .carousel-track img {
+            width: 50%; /* Ajusta para móviles */
+        }
     }
 </style>
 </head>
@@ -155,7 +166,7 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes (duplicadas para scroll infinito) -->
+<!-- Carrusel de 4 imágenes -->
 <div class="carousel">
     <div class="carousel-track">
         <img src="1.jpg" alt="RustDesk 1">
