@@ -19,11 +19,21 @@
 
     body {
         padding: 40px 20px;
+        min-height: 100vh;
+    }
+
+    /* Contenedor central para centrar todo */
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .logo {
         max-width: 180px;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .backup-text {
@@ -44,15 +54,23 @@
         margin-top: 15px;
         line-height: 1.5;
         color: #333;
+        max-width: 600px;
+    }
+
+    .download-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
     }
 
     .download-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        margin: 10px;
-        padding: 12px 25px;
+        gap: 10px;
+        padding: 14px 30px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
@@ -83,7 +101,7 @@
     }
 
     footer {
-        margin-top: auto; /* empuja el footer al final */
+        margin-top: auto; /* Footer pegado al final */
         font-size: 14px;
         color: #555;
         background-color: #e6eefb;
@@ -103,25 +121,29 @@
 </head>
 <body>
 
-<img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
+<div class="main-content">
+    <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<p class="backup-text">Respaldado por:</p>
-<img src="logo.png" alt="RobertSoftware" class="logo">
+    <p class="backup-text">Respaldado por:</p>
+    <img src="logo.png" alt="RobertSoftware" class="logo">
 
-<h1>RustDesk</h1>
-<p class="message">
-    Seleccione su sistema operativo para iniciar la descarga de RustDesk.
-</p>
+    <h1>RustDesk</h1>
+    <p class="message">
+        Seleccione su sistema operativo para iniciar la descarga de RustDesk.
+    </p>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin" download>
-   <img src="windows.svg" alt="Windows"> Descargar para Windows
-</a>
+    <div class="download-links">
+        <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+           class="download-link" id="btnWin" download>
+           <img src="windows.svg" alt="Windows"> Descargar para Windows
+        </a>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac" download>
-   <img src="macos.svg" alt="macOS"> Descargar para macOS
-</a>
+        <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+           class="download-link" id="btnMac" download>
+           <img src="macos.svg" alt="macOS"> Descargar para macOS
+        </a>
+    </div>
+</div>
 
 <script>
     const gif = document.getElementById('downloadGif');
