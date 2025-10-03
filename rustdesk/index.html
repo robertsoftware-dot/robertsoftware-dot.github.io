@@ -6,51 +6,74 @@
 <title>Descargar RustDesk - RobertSoftware</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Arial', sans-serif;
         background-color: #f4f4f9;
         color: #333;
         text-align: center;
         padding: 50px;
+        position: relative;
     }
+
     .logo {
         max-width: 200px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
+
     .backup-text {
         font-size: 14px;
         margin-bottom: 10px;
         color: #555;
     }
+
     h1 {
         font-size: 28px;
         margin-bottom: 20px;
+        font-weight: bold;
     }
-    p.message {
+
+    .message {
         font-size: 18px;
-        margin-bottom: 20px;
+        margin-top: 10px;
         color: #444;
     }
+
     .button-container {
-        margin-top: 30px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
-    .download-button {
+
+    .download-link {
         display: inline-block;
-        margin: 10px;
-        padding: 14px 30px;
+        padding: 12px 25px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
-        font-size: 16px;
         transition: background-color 0.3s;
     }
-    .download-button:hover {
+
+    .download-link:hover {
         background-color: #0056b3;
+    }
+
+    /* GIF flecha en la esquina superior derecha */
+    .arrow-top {
+        position: fixed;
+        top: 20px;
+        right: 60px;   /* puedes ajustar */
+        width: 60px;   /* tamaño del GIF */
+        z-index: 1000;
+        pointer-events: none;
     }
 </style>
 </head>
 <body>
+
+<!-- GIF flecha apuntando hacia la descarga -->
+<img src="flecha-arriba.gif" alt="" class="arrow-top">
 
 <p class="backup-text">Respaldado por:</p>
 <img src="logo.png" alt="RobertSoftware" class="logo">
@@ -59,9 +82,11 @@
 <p class="message">Seleccione su sistema operativo y haga clic en el botón correspondiente:</p>
 
 <div class="button-container">
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-button">Descargar para Windows</a>
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-button">Descargar para macOS</a>
+    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link">Windows</a>
+    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link">macOS</a>
 </div>
+
+<p class="message">Si los enlaces no funcionan, asegúrese de tener acceso a Internet y verifique la compatibilidad de su sistema operativo.</p>
 
 </body>
 </html>
