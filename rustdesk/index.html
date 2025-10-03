@@ -87,34 +87,6 @@
         100% { transform: translateY(-8px); }
     }
 
-    /* Carrusel de imágenes */
-    .carousel {
-        overflow: hidden;
-        width: 100%;
-        max-width: 600px;
-        margin: 30px auto;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .carousel-track {
-        display: flex;
-        width: calc(4 * 100%);
-        animation: scroll 32s linear infinite;
-    }
-
-    .carousel-track img {
-        width: 25%;
-        height: auto;
-        border-radius: 12px;
-    }
-
-    @keyframes scroll {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-75%); }
-    }
-
     footer {
         font-size: 14px;
         color: #555;
@@ -182,6 +154,58 @@
         0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
     }
+
+    /* Nuevo carrusel con flechas y autoplay */
+    .carousel {
+        position: relative;
+        max-width: 600px;
+        margin: 30px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        touch-action: pan-x;
+    }
+
+    .carousel-track img {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 12px;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.3);
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 50%;
+        z-index: 10;
+        transition: background-color 0.2s;
+    }
+
+    .carousel-arrow:hover {
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .carousel-arrow-left {
+        left: 10px;
+    }
+
+    .carousel-arrow-right {
+        right: 10px;
+    }
 </style>
 </head>
 <body>
@@ -214,14 +238,16 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes -->
+<!-- Carrusel de 4 imágenes con flechas -->
 <div class="carousel">
+    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
     <div class="carousel-track">
         <img src="1.jpg" alt="RustDesk 1">
         <img src="2.png" alt="RustDesk 2">
         <img src="3.png" alt="RustDesk 3">
         <img src="4.png" alt="RustDesk 4">
     </div>
+    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
 <script>
@@ -233,6 +259,53 @@
             gif.style.display = 'block';
         });
     });
+
+    // Carrusel
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-arrow-left');
+    const nextButton = document.querySelector('.carousel-arrow-right');
+    let index = 0;
+    const total = slides.length;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        index = (index + 1) % total;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        index = (index - 1 + total) % total;
+        updateCarousel();
+    });
+
+    // Autoplay lento
+    setInterval(() => {
+        index = (index + 1) % total;
+        updateCarousel();
+    }, 5000); // cambia cada 5 segundos
+
+    // Swipe para móviles
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    track.addEventListener('touchmove', e => {
+        if(!isDragging) return;
+        const moveX = e.touches[0].clientX;
+        const diff = startX - moveX;
+        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
+        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
+    });
+
+    track.addEventListener('touchend', () => { isDragging = false; });
 </script>
 
 <footer>
