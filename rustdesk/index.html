@@ -73,7 +73,7 @@
 
     .arrow-top {
         position: fixed;
-        top: 45px; /* Ajustado para estar justo debajo de la cinta */
+        top: 40px; /* debajo de la cinta */
         right: 60px;
         width: 60px;
         z-index: 1000;
@@ -147,7 +147,7 @@
     }
 
     .ticker-text img {
-        height: 28px; /* logo dentro de la cinta */
+        height: 28px; /* logos dentro de la cinta */
     }
 
     @keyframes scrollTicker {
@@ -155,7 +155,7 @@
         100% { transform: translateX(-100%); }
     }
 
-    /* Nuevo carrusel con flechas y autoplay */
+    /* Carrusel con flechas y autoplay */
     .carousel {
         position: relative;
         max-width: 600px;
@@ -210,15 +210,16 @@
 </head>
 <body>
 
-<!-- Cinta corporativa con logo RustDesk -->
+<!-- Cinta corporativa con logos -->
 <div class="corporate-ticker">
   <div class="ticker-text">
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
+    <img src="solzze-logo.png" alt="Solzze Logo">
+    <img src="rs-logo.png" alt="RS Logo">
     Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.
   </div>
 </div>
 
-<!-- GIF justo debajo de la cinta -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
 <p class="backup-text">Respaldado por:</p>
