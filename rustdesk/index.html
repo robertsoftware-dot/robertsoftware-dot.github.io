@@ -87,6 +87,7 @@
         100% { transform: translateY(-8px); }
     }
 
+    /* Carrusel de imágenes */
     .carousel {
         overflow: hidden;
         width: 100%;
@@ -135,6 +136,7 @@
         color: #004080;
     }
 
+    /* Ajuste solo para móviles */
     @media (max-width: 600px) {
         .download-link {
             width: 80%;
@@ -155,17 +157,17 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<!-- Botones de descarga apuntando directo a GitHub Releases -->
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin" target="_blank" rel="noopener">
+   class="download-link" id="btnWin">
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac" target="_blank" rel="noopener">
+   class="download-link" id="btnMac">
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
+<!-- Carrusel de 4 imágenes -->
 <div class="carousel">
     <div class="carousel-track">
         <img src="1.jpg" alt="RustDesk 1">
@@ -177,12 +179,28 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
-    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            gif.style.display = 'block';
-        });
+    // Descarga directa sin abrir pestaña
+    document.getElementById('btnWin').addEventListener('click', function(e){
+        e.preventDefault();
+        gif.style.display = 'block';
+        const link = document.createElement('a');
+        link.href = this.href;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+
+    document.getElementById('btnMac').addEventListener('click', function(e){
+        e.preventDefault();
+        gif.style.display = 'block';
+        const link = document.createElement('a');
+        link.href = this.href;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     });
 </script>
 
