@@ -23,26 +23,31 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #cfd8e7; /* color más claro y minimalista */
+        background-color: #cfd8e7;
         color: #1a1a1a;
         padding: 10px 0;
         font-size: 16px;
         font-weight: bold;
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
-        z-index: 2000;
         overflow: hidden;
+        z-index: 2000;
     }
 
-    .top-ribbon img {
-        height: 24px; /* espacio para el logo RustDesk */
+    .scroll-container {
+        display: flex;
+        align-items: center;
+        animation: scroll-text 20s linear infinite;
+        gap: 15px;
     }
 
-    .top-ribbon span {
-        display: inline-block;
-        animation: scroll-text 15s linear infinite;
+    .scroll-container img {
+        height: 36px; /* logo más grande */
+    }
+
+    .scroll-container span {
+        white-space: nowrap;
+        font-size: 16px;
     }
 
     @keyframes scroll-text {
@@ -178,10 +183,12 @@
 </head>
 <body>
 
-<!-- Cinta superior -->
+<!-- Cinta superior animada con logo y texto -->
 <div class="top-ribbon">
-    <img src="rustdesk-logo.png" alt="RustDesk Logo">
-    <span>Distribución oficial y segura de RustDesk por Robert Software - ¡Descargue la versión más reciente directamente desde GitHub!</span>
+    <div class="scroll-container">
+        <img src="rustdesk-logo.png" alt="RustDesk Logo">
+        <span>Distribución oficial y segura de RustDesk por Robert Software - ¡Descargue la versión más reciente directamente desde GitHub!</span>
+    </div>
 </div>
 
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
