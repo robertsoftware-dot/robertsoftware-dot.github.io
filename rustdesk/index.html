@@ -78,7 +78,7 @@
         display: none;
     }
 
-    /* Carrusel de imágenes */
+    /* Carrusel mejorado */
     .carousel {
         overflow: hidden;
         width: 100%;
@@ -86,23 +86,27 @@
         margin: 30px auto;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        background-color: #e6eefb;
     }
 
     .carousel-track {
         display: flex;
-        width: calc(4 * 100%);
-        animation: scroll 16s linear infinite;
+        width: calc(8 * 100% / 4); /* 8 imágenes (duplicadas) */
+        animation: scroll 20s linear infinite;
     }
 
     .carousel-track img {
-        width: 25%;
+        flex: 0 0 25%; /* cada imagen ocupa 25% del contenedor */
+        max-width: 100%;
         height: auto;
         border-radius: 12px;
+        object-fit: contain;
+        margin: 0 5px; /* pequeño espacio entre imágenes */
     }
 
     @keyframes scroll {
         0% { transform: translateX(0%); }
-        100% { transform: translateX(-75%); }
+        100% { transform: translateX(-50%); } /* mueve hasta la mitad para repetir */
     }
 
     footer {
@@ -151,9 +155,13 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes -->
+<!-- Carrusel de 4 imágenes (duplicadas para scroll infinito) -->
 <div class="carousel">
     <div class="carousel-track">
+        <img src="1.jpg" alt="RustDesk 1">
+        <img src="2.png" alt="RustDesk 2">
+        <img src="3.png" alt="RustDesk 3">
+        <img src="4.png" alt="RustDesk 4">
         <img src="1.jpg" alt="RustDesk 1">
         <img src="2.png" alt="RustDesk 2">
         <img src="3.png" alt="RustDesk 3">
