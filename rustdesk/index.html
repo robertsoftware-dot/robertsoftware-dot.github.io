@@ -314,9 +314,19 @@
         fetch("https://api.counterapi.dev/v2/rs/Win/increment")
             .then(res => res.json())
             .then(data => {
-                console.log("Contador actualizado:", data);
+                console.log("Contador Windows actualizado:", data);
             })
-            .catch(err => console.error("Error al incrementar contador:", err));
+            .catch(err => console.error("Error al incrementar contador Windows:", err));
+    });
+
+    // CounterAPI para macOS
+    document.getElementById('btnMac').addEventListener('click', () => {
+        fetch("https://api.counterapi.dev/v2/rs/Mac/increment")
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador Mac actualizado:", data);
+            })
+            .catch(err => console.error("Error al incrementar contador Mac:", err));
     });
 </script>
 
