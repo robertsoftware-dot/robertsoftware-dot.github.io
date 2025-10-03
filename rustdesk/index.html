@@ -158,12 +158,12 @@
 </p>
 
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin">
+   class="download-link" id="btnWin" download>
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac">
+   class="download-link" id="btnMac" download>
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
@@ -179,28 +179,12 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
+    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    // Descarga directa sin abrir pestaña
-    document.getElementById('btnWin').addEventListener('click', function(e){
-        e.preventDefault();
-        gif.style.display = 'block';
-        const link = document.createElement('a');
-        link.href = this.href;
-        link.download = '';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-
-    document.getElementById('btnMac').addEventListener('click', function(e){
-        e.preventDefault();
-        gif.style.display = 'block';
-        const link = document.createElement('a');
-        link.href = this.href;
-        link.download = '';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            gif.style.display = 'block';
+        });
     });
 </script>
 
