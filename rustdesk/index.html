@@ -87,7 +87,6 @@
         100% { transform: translateY(-8px); }
     }
 
-    /* Carrusel de imágenes */
     .carousel {
         overflow: hidden;
         width: 100%;
@@ -136,10 +135,9 @@
         color: #004080;
     }
 
-    /* Ajuste solo para móviles */
     @media (max-width: 600px) {
         .download-link {
-            width: 80%; /* mismo ancho para ambos botones en móvil */
+            width: 80%;
             font-size: 18px;
         }
     }
@@ -157,17 +155,17 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<a href="#" 
-   class="download-link" id="btnWin">
+<!-- Botones de descarga apuntando directo a GitHub Releases -->
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+   class="download-link" id="btnWin" target="_blank" rel="noopener">
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
-<a href="#" 
-   class="download-link" id="btnMac">
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+   class="download-link" id="btnMac" target="_blank" rel="noopener">
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes -->
 <div class="carousel">
     <div class="carousel-track">
         <img src="1.jpg" alt="RustDesk 1">
@@ -179,18 +177,11 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
+    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    const links = {
-        btnWin: "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
-        btnMac: "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg"
-    };
-
-    Object.keys(links).forEach(id => {
-        const btn = document.getElementById(id);
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
             gif.style.display = 'block';
-            window.open(links[id], '_blank'); // abre GitHub directamente
         });
     });
 </script>
