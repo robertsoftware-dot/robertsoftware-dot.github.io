@@ -140,7 +140,7 @@
     @media (max-width: 600px) {
         .download-link {
             width: 80%; /* mismo ancho para ambos botones en móvil */
-            font-size: 18px; /* opcional: un poquito más grande si quieres */
+            font-size: 18px;
         }
     }
 </style>
@@ -157,13 +157,13 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin" target="_blank">
+<a href="#" 
+   class="download-link" id="btnWin">
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac" target="_blank">
+<a href="#" 
+   class="download-link" id="btnMac">
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
@@ -179,11 +179,18 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
-    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
+    const links = {
+        btnWin: "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+        btnMac: "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg"
+    };
+
+    Object.keys(links).forEach(id => {
+        const btn = document.getElementById(id);
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             gif.style.display = 'block';
+            window.open(links[id], '_blank'); // abre GitHub directamente
         });
     });
 </script>
