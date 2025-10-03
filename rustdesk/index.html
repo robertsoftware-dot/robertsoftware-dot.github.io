@@ -144,54 +144,54 @@
         }
     }
 
-    /* Cinta corporativa con logo RustDesk */
+    /* Cinta corporativa */
     .corporate-ticker {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #003366;
+        background-color: #1e3a5f; /* azul más claro y profesional */
         overflow: hidden;
-        height: 40px;
+        height: 50px;
         z-index: 9999;
         box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         display: flex;
         align-items: center;
         box-sizing: border-box;
+        padding-left: 10px;
     }
 
-    .ticker-content {
-        display: flex;
-        align-items: center;
+    .ticker-text {
+        display: inline-block;
         white-space: nowrap;
-        animation: scrollTicker 20s linear infinite;
-        gap: 15px;
-    }
-
-    .ticker-content img {
-        height: 32px; /* logo más grande */
-    }
-
-    .ticker-content span {
-        color: #ffffff;
+        color: #ffffff; /* letras blancas para contraste con logo negro */
         font-weight: 600;
         font-family: 'Arial', sans-serif;
         font-size: 16px;
+        padding-left: 100%;
+        animation: scrollTicker 20s linear infinite;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .ticker-text img {
+        height: 30px; /* logo más grande */
     }
 
     @keyframes scrollTicker {
-        0% { transform: translateX(100%); }
+        0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
     }
 </style>
 </head>
 <body>
 
-<!-- Cinta corporativa con logo RustDesk -->
+<!-- Cinta corporativa -->
 <div class="corporate-ticker">
-  <div class="ticker-content">
-    <img src="rustdesk-logo.png" alt="RustDesk Logo">
-    <span>Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.</span>
+  <div class="ticker-text">
+    <img src="rustdesk-logo.png" alt="RustDesk">
+    Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.
   </div>
 </div>
 
