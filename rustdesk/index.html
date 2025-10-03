@@ -3,51 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Descargar RustDesk - RobertSoftware</title>
+<title>Descargar RustDesk - Robert Software</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
         color: #333;
         text-align: center;
-        padding: 50px;
-        position: relative;
+        padding: 60px 20px;
     }
+
     .logo {
-        max-width: 200px;
-        margin-bottom: 30px;
+        max-width: 180px;
+        margin-bottom: 40px;
     }
-    .backup-text {
-        font-size: 14px;
-        margin-bottom: 10px;
-        color: #555;
+
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #1f2937;
     }
+
     .message {
-        font-size: 18px;
-        margin-top: 20px;
+        font-size: 20px;
+        margin-bottom: 40px;
+        color: #4b5563;
     }
+
     .download-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 12px;
         margin: 15px;
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
+        padding: 14px 28px;
+        font-size: 18px;
+        font-weight: 600;
         text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
+        border-radius: 12px;
+        color: #fff;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
     }
-    .download-link:hover {
-        background-color: #0056b3;
-    }
+
     .download-link img {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
     }
+
+    .download-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
     .arrow-top {
         position: fixed;
         top: 20px;
@@ -55,13 +70,25 @@
         width: 60px;
         z-index: 1000;
         pointer-events: none;
-        display: none; /* oculto inicialmente */
+        display: none;
     }
+
     footer {
-        margin-top: 50px;
+        margin-top: 60px;
         font-size: 14px;
-        color: #555;
+        color: #6b7280;
         text-align: center;
+        line-height: 1.6;
+    }
+
+    footer a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
     }
 </style>
 </head>
@@ -70,13 +97,16 @@
 <!-- GIF flecha -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<p class="backup-text">Respaldado por:</p>
-<img src="logo.png" alt="RobertSoftware" class="logo">
+<!-- Logo -->
+<img src="logo.png" alt="Robert Software" class="logo">
 
 <h1>RustDesk</h1>
-<p class="message">Seleccione su sistema operativo y haga clic en el botón correspondiente. La descarga se iniciará en esta misma página:</p>
+<p class="message">
+    Seleccione su sistema operativo y haga clic en el botón correspondiente.<br>
+    La descarga se iniciará en esta misma página.
+</p>
 
-<!-- Botones de descarga con iconos -->
+<!-- Botones de descarga -->
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
    class="download-link" id="btnWin" download>
    <img src="windows.png" alt="Windows"> Descargar para Windows
@@ -88,7 +118,6 @@
 </a>
 
 <script>
-    // Mostrar GIF al hacer clic en cualquier botón
     const gif = document.getElementById('downloadGif');
     const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
