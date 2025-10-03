@@ -17,16 +17,16 @@
         min-height: 100vh;
     }
 
-    /* Cinta superior animada */
+    /* Cinta superior animada estilo anterior con logo */
     .top-ribbon {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #cfd8e7;
-        color: #1a1a1a;
-        padding: 10px 0;
-        font-size: 16px;
+        background-color: #007bff; /* color más fuerte */
+        color: white;
+        padding: 6px 0;
+        font-size: 14px;
         font-weight: bold;
         display: flex;
         align-items: center;
@@ -42,12 +42,12 @@
     }
 
     .scroll-container img {
-        height: 36px; /* logo más grande */
+        height: 24px; /* logo moderado */
     }
 
     .scroll-container span {
         white-space: nowrap;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     @keyframes scroll-text {
@@ -183,7 +183,7 @@
 </head>
 <body>
 
-<!-- Cinta superior animada con logo y texto -->
+<!-- Cinta superior estilo original con logo RustDesk -->
 <div class="top-ribbon">
     <div class="scroll-container">
         <img src="rustdesk-logo.png" alt="RustDesk Logo">
