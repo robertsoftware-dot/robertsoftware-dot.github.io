@@ -13,7 +13,6 @@
         text-align: center;
         padding: 40px 20px;
         margin: 0;
-        position: relative;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -59,6 +58,7 @@
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
+        flex-shrink: 0; /* evita que se agranden */
     }
 
     .download-link:hover {
@@ -97,9 +97,10 @@
     }
 
     .carousel-track img {
-        width: 25%;
+        width: 100%;
         height: auto;
         border-radius: 12px;
+        object-fit: contain; /* asegura que no se corte la imagen */
     }
 
     @keyframes scroll {
@@ -107,8 +108,8 @@
         100% { transform: translateX(-75%); }
     }
 
-    /* Footer */
     footer {
+        margin-top: auto;
         font-size: 14px;
         color: #555;
         text-align: center;
@@ -116,7 +117,8 @@
         padding: 10px 20px;
         line-height: 1.4;
         max-width: 800px;
-        margin-top: auto; /* Empuja el footer al final */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     footer a {
@@ -126,21 +128,6 @@
 
     footer a:hover {
         text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-        .download-link {
-            font-size: 14px;
-            padding: 10px 20px;
-        }
-
-        h1 {
-            font-size: 28px;
-        }
-
-        .carousel-track img {
-            width: 50%; /* Ajusta para móviles */
-        }
     }
 </style>
 </head>
@@ -169,10 +156,6 @@
 <!-- Carrusel de 4 imágenes -->
 <div class="carousel">
     <div class="carousel-track">
-        <img src="1.jpg" alt="RustDesk 1">
-        <img src="2.png" alt="RustDesk 2">
-        <img src="3.png" alt="RustDesk 3">
-        <img src="4.png" alt="RustDesk 4">
         <img src="1.jpg" alt="RustDesk 1">
         <img src="2.png" alt="RustDesk 2">
         <img src="3.png" alt="RustDesk 3">
