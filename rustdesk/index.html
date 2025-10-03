@@ -84,7 +84,7 @@
 
     @keyframes float {
         0% { transform: translateY(0); }
-        100% { transform: translateY(-2px); }
+        100% { transform: translateY(-8px); }
     }
 
     /* Carrusel de imágenes */
@@ -136,7 +136,6 @@
         color: #004080;
     }
 
-    /* Ajuste solo para móviles */
     @media (max-width: 600px) {
         .download-link {
             width: 80%;
@@ -150,14 +149,13 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #0059a6; /* color más claro que el azul oscuro */
+        height: 40px; /* misma altura que el index original */
+        background-color: #003366;
         overflow: hidden;
-        height: 50px; /* altura de la cinta */
         z-index: 9999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         display: flex;
         align-items: center;
-        box-sizing: border-box;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     .ticker-content {
@@ -165,15 +163,15 @@
         align-items: center;
         white-space: nowrap;
         animation: scrollTicker 20s linear infinite;
-        gap: 15px;
+        gap: 12px;
     }
 
     .ticker-content img {
-        height: 40px; /* logo más grande pero dentro de la cinta */
+        height: 28px; /* logo más grande pero cabe en la cinta */
     }
 
     .ticker-content span {
-        color: #ffffff; /* letras blancas resaltando sobre azul más claro */
+        color: #ffffff;
         font-weight: 600;
         font-family: 'Arial', sans-serif;
         font-size: 16px;
