@@ -5,55 +5,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Descargar RustDesk - RobertSoftware</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<!-- Fuente elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: 100%;
+        font-family: 'Inter', sans-serif;
+        background-color: #e6eefb;
+        color: #1a1a1a;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: #e6eefb; /* color uniforme para todo el fondo */
-        color: #333;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        padding: 50px;
-        position: relative;
+        padding: 20px;
     }
 
     .logo {
-        max-width: 200px;
-        margin-bottom: 30px;
-    }
-
-    .backup-text {
-        font-size: 16px; /* tamaño de letra ajustado */
-        margin-bottom: 10px;
-        color: #555;
+        max-width: 180px;
+        margin-bottom: 25px;
     }
 
     h1 {
-        font-size: 48px; /* tamaño mayor como en la imagen */
-        margin: 20px 0;
-        font-weight: bold;
-        color: #222;
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 15px;
     }
 
     .message {
-        font-size: 20px; /* un poco más grande */
-        margin-top: 20px;
-        line-height: 1.6;
+        font-size: 16px;
         color: #333;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    .download-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
     }
 
     .download-link {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
         gap: 10px;
-        margin: 15px;
-        padding: 14px 30px;
-        background-color: #007bff;
-        color: white;
+        padding: 12px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
         text-decoration: none;
+        background-color: #007bff;
         border-radius: 8px;
-        font-weight: bold;
-        font-size: 18px; /* tamaño ajustado para los botones */
-        cursor: pointer;
         transition: background-color 0.3s;
     }
 
@@ -62,28 +77,15 @@
     }
 
     .download-link img {
-        width: 28px;
-        height: 28px;
-    }
-
-    .arrow-top {
-        position: fixed;
-        top: 20px;
-        right: 60px;
-        width: 60px;
-        z-index: 1000;
-        pointer-events: none;
-        display: none;
+        width: 24px;
+        height: 24px;
     }
 
     footer {
-        margin-top: 50px;
-        font-size: 16px; /* tamaño ajustado */
+        font-size: 14px;
         color: #555;
         text-align: center;
-        background-color: #e6eefb; /* mismo color que el body */
-        padding: 20px 0;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     footer a {
@@ -94,52 +96,37 @@
     footer a:hover {
         text-decoration: underline;
     }
+
+    @media (max-height: 650px) {
+        body {
+            justify-content: flex-start;
+            padding-top: 40px;
+        }
+    }
 </style>
 </head>
 <body>
 
-<!-- GIF flecha -->
-<img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
-
-<p class="backup-text">Respaldado por:</p>
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
 <h1>RustDesk</h1>
 <p class="message">
-    Seleccione su sistema operativo y haga clic en el botón correspondiente.<br>
-    La descarga se iniciará en esta misma página.
+    Seleccione su sistema operativo para iniciar la descarga.
 </p>
 
-<!-- Botones de descarga con iconos -->
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin" download>
-   <img src="windows.svg" alt="Windows"> Descargar para Windows
-</a>
-
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac" download>
-   <img src="macos.svg" alt="macOS"> Descargar para macOS
-</a>
-
-<script>
-    // Mostrar GIF al hacer clic en cualquier botón
-    const gif = document.getElementById('downloadGif');
-    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            gif.style.display = 'block';
-        });
-    });
-</script>
+<div class="download-links">
+    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link">
+        <img src="windows.svg" alt="Windows"> Windows
+    </a>
+    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link">
+        <img src="macos.svg" alt="macOS"> macOS
+    </a>
+</div>
 
 <footer>
     <p>Distribución segura de RustDesk por <strong>Robert Software</strong></p>
     <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
+    <p>WhatsApp: <a href="https://wa.me/51945482880" target="_blank">945482880</a> | Correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a></p>
 </footer>
 
 </body>
