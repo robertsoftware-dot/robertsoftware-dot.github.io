@@ -22,12 +22,17 @@
         margin-bottom: 10px;
         color: #555;
     }
+    h1 {
+        margin-bottom: 10px;
+    }
     .message {
         font-size: 18px;
         margin-top: 20px;
     }
     .download-link {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         margin: 15px;
         padding: 12px 25px;
         background-color: #007bff;
@@ -36,6 +41,7 @@
         border-radius: 8px;
         font-weight: bold;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
     .download-link:hover {
         background-color: #0056b3;
@@ -48,7 +54,20 @@
         width: 60px;
         z-index: 1000;
         pointer-events: none;
-        display: none; /* oculto inicialmente */
+        display: none;
+    }
+    footer {
+        margin-top: 50px;
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+    }
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
     }
 </style>
 </head>
@@ -62,18 +81,26 @@
 
 <h1>RustDesk</h1>
 <p class="message">Seleccione su sistema operativo y haga clic en el botón correspondiente:</p>
+<p class="message">Su descarga es segura y confiable. Para soporte técnico o consultas, contáctenos.</p>
 
 <!-- Botones de descarga -->
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-   class="download-link" id="btnWin">Descargar para Windows</a>
+   class="download-link" id="btnWin">
+   <!-- Icono Windows SVG -->
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M0 3.75v8.25h10v-10h-10v1.75zm0 10.5v8.25h10v-10h-10v1.75zm11 0v10h13v-10h-13v1.75zm0-10v8.25h13v-10h-13v1.75z"/>
+   </svg>
+   Descargar para Windows
+</a>
 
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-   class="download-link" id="btnMac">Descargar para macOS</a>
-
-<p class="message" style="margin-top: 30px; font-size:16px; color:#555;">
-    Todos los archivos están verificados y listos para su descarga. 
-    Gracias por confiar en RobertSoftware para sus herramientas de escritorio remoto.
-</p>
+   class="download-link" id="btnMac">
+   <!-- Icono MacOS SVG (Apple) -->
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+       <path d="M16.365 1.43c-.567.677-1.183 1.234-1.85 1.668-.66.43-1.387.795-2.17 1.093-.723.272-1.48.464-2.27.565-.064-.497-.14-.964-.228-1.395-.098-.48-.197-.945-.297-1.392 1.008-.074 1.928-.31 2.762-.706.836-.397 1.575-.98 2.22-1.75.593.79 1.134 1.55 1.62 2.28zM12.001 5.093c-3.83 0-5.464 3.065-5.464 6.1 0 2.6 1.674 6.112 5.464 6.112s5.437-3.518 5.437-6.112c0-3.035-1.608-6.1-5.437-6.1z"/>
+   </svg>
+   Descargar para macOS
+</a>
 
 <script>
     // Mostrar GIF al hacer clic en cualquier botón
@@ -86,6 +113,12 @@
         });
     });
 </script>
+
+<footer>
+    <p>Distribución segura de RustDesk por <strong>Robert Software</strong></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a> | Tel: 945482880</p>
+</footer>
 
 </body>
 </html>
