@@ -169,6 +169,13 @@
         font-size: 16px;
         padding-left: 100%;
         animation: scrollTicker 20s linear infinite;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ticker-text img {
+        height: 28px; /* logo dentro de la cinta */
     }
 
     @keyframes scrollTicker {
@@ -179,9 +186,10 @@
 </head>
 <body>
 
-<!-- Cinta corporativa -->
+<!-- Cinta corporativa con logo RustDesk -->
 <div class="corporate-ticker">
   <div class="ticker-text">
+    <img src="rustdesk-logo.png" alt="RustDesk Logo">
     Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.
   </div>
 </div>
