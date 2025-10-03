@@ -13,7 +13,7 @@
         text-align: center;
         padding: 40px 20px;
         margin: 0;
-        position: relative; /* para que el footer absoluto funcione */
+        position: relative;
         min-height: 100vh;
     }
 
@@ -78,9 +78,36 @@
         display: none;
     }
 
+    /* Carrusel de imágenes */
+    .carousel {
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .carousel-track {
+        display: flex;
+        width: calc(4 * 100%);
+        animation: scroll 16s linear infinite;
+    }
+
+    .carousel-track img {
+        width: 25%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-75%); }
+    }
+
     footer {
         position: absolute;
-        bottom: 20px; /* distancia desde el borde inferior */
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
         font-size: 14px;
@@ -89,7 +116,7 @@
         background-color: #e6eefb;
         padding: 10px 20px;
         line-height: 1.4;
-        max-width: 800px; /* opcional, para que no se extienda demasiado */
+        max-width: 800px;
     }
 
     footer a {
@@ -123,6 +150,16 @@
    class="download-link" id="btnMac" download>
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
+
+<!-- Carrusel de 4 imágenes -->
+<div class="carousel">
+    <div class="carousel-track">
+        <img src="1.jpg" alt="RustDesk 1">
+        <img src="2.png" alt="RustDesk 2">
+        <img src="3.png" alt="RustDesk 3">
+        <img src="4.png" alt="RustDesk 4">
+    </div>
+</div>
 
 <script>
     const gif = document.getElementById('downloadGif');
