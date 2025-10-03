@@ -144,7 +144,7 @@
         }
     }
 
-    /* Cinta corporativa */
+    /* Cinta corporativa con logo RustDesk */
     .corporate-ticker {
         position: fixed;
         top: 0;
@@ -160,29 +160,38 @@
         box-sizing: border-box;
     }
 
-    .ticker-text {
-        display: inline-block;
+    .ticker-content {
+        display: flex;
+        align-items: center;
         white-space: nowrap;
+        animation: scrollTicker 20s linear infinite;
+        gap: 15px;
+    }
+
+    .ticker-content img {
+        height: 32px; /* logo más grande */
+    }
+
+    .ticker-content span {
         color: #ffffff;
         font-weight: 600;
         font-family: 'Arial', sans-serif;
         font-size: 16px;
-        padding-left: 100%;
-        animation: scrollTicker 20s linear infinite;
     }
 
     @keyframes scrollTicker {
-        0% { transform: translateX(0); }
+        0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
     }
 </style>
 </head>
 <body>
 
-<!-- Cinta corporativa -->
+<!-- Cinta corporativa con logo RustDesk -->
 <div class="corporate-ticker">
-  <div class="ticker-text">
-    Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.
+  <div class="ticker-content">
+    <img src="rustdesk-logo.png" alt="RustDesk Logo">
+    <span>Distribución oficial y segura de RustDesk por Robert Software - Descargue las versiones más recientes y confiables para Windows y macOS directamente desde los enlaces oficiales.</span>
   </div>
 </div>
 
