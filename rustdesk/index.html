@@ -14,40 +14,58 @@
         padding: 50px;
         position: relative;
     }
+
     .logo {
         max-width: 200px;
         margin-bottom: 30px;
     }
+
     .backup-text {
-        font-size: 14px;
+        font-size: 16px; /* tamaño de letra ajustado */
         margin-bottom: 10px;
         color: #555;
     }
-    .message {
-        font-size: 18px;
-        margin-top: 20px;
+
+    h1 {
+        font-size: 48px; /* tamaño mayor como en la imagen */
+        margin: 20px 0;
+        font-weight: bold;
+        color: #222;
     }
+
+    .message {
+        font-size: 20px; /* un poco más grande */
+        margin-top: 20px;
+        line-height: 1.6;
+        color: #333;
+    }
+
     .download-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
         margin: 15px;
-        padding: 12px 25px;
+        padding: 14px 30px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
+        font-size: 18px; /* tamaño ajustado para los botones */
         cursor: pointer;
+        transition: background-color 0.3s;
     }
+
     .download-link:hover {
         background-color: #0056b3;
     }
+
     .download-link img {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
     }
+
     .arrow-top {
         position: fixed;
         top: 20px;
@@ -57,13 +75,24 @@
         pointer-events: none;
         display: none;
     }
+
     footer {
         margin-top: 50px;
-        font-size: 14px;
+        font-size: 16px; /* tamaño ajustado */
         color: #555;
         text-align: center;
         background-color: #e6eefb; /* mismo color que el body */
         padding: 20px 0;
+        line-height: 1.6;
+    }
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
     }
 </style>
 </head>
@@ -76,8 +105,10 @@
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
 <h1>RustDesk</h1>
-<p class="message">Seleccione su sistema operativo y haga clic en el botón correspondiente.  
-La descarga se iniciará en esta misma página.</p>
+<p class="message">
+    Seleccione su sistema operativo y haga clic en el botón correspondiente.<br>
+    La descarga se iniciará en esta misma página.
+</p>
 
 <!-- Botones de descarga con iconos -->
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
