@@ -101,7 +101,7 @@
     .carousel-track {
         display: flex;
         width: calc(4 * 100%);
-        animation: scroll 30s linear infinite; /* carrusel más lento */
+        animation: scroll 32s linear infinite;
     }
 
     .carousel-track img {
@@ -123,7 +123,7 @@
         padding: 10px 20px;
         line-height: 1.4;
         max-width: 800px;
-        margin: 40px auto 0; /* footer más abajo sin tocar layout */
+        margin: 40px auto 0;
     }
 
     footer a {
@@ -134,6 +134,14 @@
     footer a:hover {
         text-decoration: underline;
         color: #004080;
+    }
+
+    /* Ajuste solo para móviles */
+    @media (max-width: 600px) {
+        .download-link {
+            width: 80%; /* mismo ancho para ambos botones en móvil */
+            font-size: 18px; /* opcional: un poquito más grande si quieres */
+        }
     }
 </style>
 </head>
