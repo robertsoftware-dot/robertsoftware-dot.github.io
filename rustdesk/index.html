@@ -13,6 +13,7 @@
         text-align: center;
         padding: 40px 20px;
         margin: 0;
+        position: relative;
         min-height: 100vh;
     }
 
@@ -31,7 +32,8 @@
         font-size: 36px; 
         margin: 15px 0;
         font-weight: bold;
-        color: #222;
+        color: #1a1a1a;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
     .message {
@@ -55,11 +57,13 @@
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     .download-link:hover {
         background-color: #0056b3;
+        transform: translateY(-2px);
     }
 
     .download-link img {
@@ -75,6 +79,12 @@
         z-index: 1000;
         pointer-events: none;
         display: none;
+        animation: float 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
     }
 
     /* Carrusel de imágenes */
@@ -84,13 +94,14 @@
         max-width: 600px;
         margin: 30px auto;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        border: 1px solid rgba(0,0,0,0.05);
     }
 
     .carousel-track {
         display: flex;
         width: calc(4 * 100%);
-        animation: scroll 16s linear infinite;
+        animation: scroll 30s linear infinite; /* carrusel más lento */
     }
 
     .carousel-track img {
@@ -104,16 +115,15 @@
         100% { transform: translateX(-75%); }
     }
 
-    /* Footer corregido para que no se superponga */
     footer {
         font-size: 14px;
         color: #555;
         text-align: center;
         background-color: #e6eefb;
-        padding: 20px 20px 10px 20px;
+        padding: 10px 20px;
         line-height: 1.4;
         max-width: 800px;
-        margin: 30px auto 0 auto; /* Se separa del contenido de arriba y empuja hacia abajo */
+        margin: 40px auto 0; /* footer más abajo sin tocar layout */
     }
 
     footer a {
@@ -123,6 +133,7 @@
 
     footer a:hover {
         text-decoration: underline;
+        color: #004080;
     }
 </style>
 </head>
