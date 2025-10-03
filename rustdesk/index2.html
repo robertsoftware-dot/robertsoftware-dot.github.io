@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Descargando RustDesk - RobertSoftware</title>
+<title>Descargar RustDesk - RobertSoftware</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -15,16 +16,12 @@
     }
     .logo {
         max-width: 200px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     .backup-text {
         font-size: 14px;
         margin-bottom: 10px;
         color: #555;
-    }
-    h1 {
-        margin-top: 10px;
-        margin-bottom: 20px;
     }
     .message {
         font-size: 18px;
@@ -32,24 +29,22 @@
     }
     .download-link {
         display: inline-block;
-        margin: 15px 10px;
+        margin: 10px 10px 0 10px;
         padding: 12px 25px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
-        transition: background-color 0.3s;
     }
     .download-link:hover {
         background-color: #0056b3;
     }
-    /* GIF flecha en la esquina superior derecha */
     .arrow-top {
         position: fixed;
         top: 20px;
-        right: 60px;
-        width: 50px;
+        right: 40px;
+        width: 60px;
         z-index: 1000;
         pointer-events: none;
     }
@@ -57,20 +52,19 @@
 </head>
 <body>
 
-<!-- GIF flecha apuntando hacia la descarga -->
+<!-- GIF flecha apuntando hacia los botones -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top">
 
 <p class="backup-text">Respaldado por:</p>
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
-<h1>Descargando RustDesk</h1>
-<p class="message">Seleccione su sistema operativo y haga clic en el botón correspondiente:</p>
+<h1>RustDesk</h1>
+<p class="message">Seleccione la versión correspondiente a su sistema:</p>
 
-<!-- Botones de descarga -->
-<a href="rustdesk-1.4.2-x86_64.exe" class="download-link">Descargar RustDesk para Windows</a>
-<a href="rustdesk-1.4.2-x86_64.dmg" class="download-link">Descargar RustDesk para macOS</a>
+<a href="rustdesk-1.4.2-x86_64.exe" class="download-link">Descargar para Windows</a>
+<a href="rustdesk-1.4.2-x86_64.dmg" class="download-link">Descargar para macOS</a>
 
-<p class="message">Si la descarga no inicia automáticamente, use los botones de arriba.</p>
+<p class="message">Si la descarga no inicia automáticamente, haga clic en el botón correspondiente.</p>
 
 </body>
 </html>
