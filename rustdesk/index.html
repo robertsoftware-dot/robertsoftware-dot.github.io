@@ -73,7 +73,7 @@
 
     .arrow-top {
         position: fixed;
-        top: 50px; /* GIF un poco más abajo que antes */
+        top: 50px;
         right: 60px;
         width: 60px;
         z-index: 1000;
@@ -108,7 +108,6 @@
         color: #004080;
     }
 
-    /* Ajuste solo para móviles */
     @media (max-width: 600px) {
         .download-link {
             width: 80%;
@@ -116,13 +115,12 @@
         }
     }
 
-    /* Cinta corporativa */
     .corporate-ticker {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6; /* color más claro */
+        background-color: #a8c4e6;
         overflow: hidden;
         height: 40px;
         z-index: 9999;
@@ -147,7 +145,7 @@
     }
 
     .ticker-text img {
-        height: 28px; /* logos dentro de la cinta */
+        height: 28px;
     }
 
     @keyframes scrollTicker {
@@ -155,7 +153,6 @@
         100% { transform: translateX(-100%); }
     }
 
-    /* Carrusel con flechas y autoplay */
     .carousel {
         position: relative;
         max-width: 600px;
@@ -210,7 +207,6 @@
 </head>
 <body>
 
-<!-- Cinta corporativa con logos -->
 <div class="corporate-ticker">
   <div class="ticker-text">
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
@@ -240,7 +236,6 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- Carrusel de 4 imágenes con flechas -->
 <div class="carousel">
     <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
     <div class="carousel-track">
@@ -262,7 +257,6 @@
         });
     });
 
-    // Carrusel
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-arrow-left');
@@ -284,13 +278,11 @@
         updateCarousel();
     });
 
-    // Autoplay lento
     setInterval(() => {
         index = (index + 1) % total;
         updateCarousel();
-    }, 5000); // cambia cada 5 segundos
+    }, 5000);
 
-    // Swipe para móviles
     let startX = 0;
     let isDragging = false;
 
@@ -310,21 +302,25 @@
     track.addEventListener('touchend', () => { isDragging = false; });
 
     // CounterAPI para Windows
-    document.getElementById('btnWin').addEventListener('click', () => {
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
         fetch("https://api.counterapi.dev/v2/rs/Win/increment")
             .then(res => res.json())
             .then(data => {
                 console.log("Contador Windows actualizado:", data);
+                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe";
             })
             .catch(err => console.error("Error al incrementar contador Windows:", err));
     });
 
     // CounterAPI para macOS
-    document.getElementById('btnMac').addEventListener('click', () => {
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
         fetch("https://api.counterapi.dev/v2/rs/Mac/increment")
             .then(res => res.json())
             .then(data => {
                 console.log("Contador Mac actualizado:", data);
+                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg";
             })
             .catch(err => console.error("Error al incrementar contador Mac:", err));
     });
