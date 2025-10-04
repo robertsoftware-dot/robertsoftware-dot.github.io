@@ -249,12 +249,31 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
-    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            gif.style.display = 'block';
-        });
+    // CounterAPI y GIF combinados para Windows
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        fetch("https://api.counterapi.dev/v2/rs/Win/up")
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador Windows actualizado:", data);
+                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe";
+            })
+            .catch(err => console.error("Error al incrementar contador Windows:", err));
+    });
+
+    // CounterAPI y GIF combinados para macOS
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        fetch("https://api.counterapi.dev/v2/rs/Mac/up")
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador Mac actualizado:", data);
+                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg";
+            })
+            .catch(err => console.error("Error al incrementar contador Mac:", err));
     });
 
     const track = document.querySelector('.carousel-track');
@@ -300,30 +319,6 @@
     });
 
     track.addEventListener('touchend', () => { isDragging = false; });
-
-    // CounterAPI para Windows
-    document.getElementById('btnWin').addEventListener('click', e => {
-        e.preventDefault();
-        fetch("https://api.counterapi.dev/v2/rs/Win/up")
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador Windows actualizado:", data);
-                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe";
-            })
-            .catch(err => console.error("Error al incrementar contador Windows:", err));
-    });
-
-    // CounterAPI para macOS
-    document.getElementById('btnMac').addEventListener('click', e => {
-        e.preventDefault();
-        fetch("https://api.counterapi.dev/v2/rs/Mac/up")
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador Mac actualizado:", data);
-                window.location.href = "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg";
-            })
-            .catch(err => console.error("Error al incrementar contador Mac:", err));
-    });
 </script>
 
 <footer>
