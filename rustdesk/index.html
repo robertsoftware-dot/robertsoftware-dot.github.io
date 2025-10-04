@@ -300,47 +300,4 @@
 
     nextButton.addEventListener('click', () => {
         index = (index + 1) % total;
-        updateCarousel();
-    });
-
-    prevButton.addEventListener('click', () => {
-        index = (index - 1 + total) % total;
-        updateCarousel();
-    });
-
-    setInterval(() => {
-        index = (index + 1) % total;
-        updateCarousel();
-    }, 5000);
-
-    let startX = 0;
-    let isDragging = false;
-
-    track.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-    });
-
-    track.addEventListener('touchmove', e => {
-        if(!isDragging) return;
-        const moveX = e.touches[0].clientX;
-        const diff = startX - moveX;
-        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
-        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
-    });
-
-    track.addEventListener('touchend', () => { isDragging = false; });
-
-</script>
-
-<footer>
-    <p>Distribución segura de RustDesk por <strong>Robert Software</strong></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
-</footer>
-
-</body>
-</html>
+       
