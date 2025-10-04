@@ -226,13 +226,13 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<a href="#" 
-   class="download-link" id="btnWin">
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+   class="download-link" id="btnWin" download>
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
-<a href="#" 
-   class="download-link" id="btnMac">
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+   class="download-link" id="btnMac" download>
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
@@ -249,12 +249,42 @@
 
 <script>
     const gif = document.getElementById('downloadGif');
-    const buttons = [document.getElementById('btnWin'), document.getElementById('btnMac')];
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            gif.style.display = 'block';
-        });
+    // Función para manejar descarga + contador
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                // Descarga directa
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
+    }
+
+    // Windows
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
+    });
+
+    // Mac
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
     });
 
     const track = document.querySelector('.carousel-track');
@@ -301,30 +331,6 @@
 
     track.addEventListener('touchend', () => { isDragging = false; });
 
-    // CounterAPI y descarga corregido para que suba 1 en 1
-    document.getElementById('btnWin').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        fetch("https://api.counterapi.dev/v2/rs/Win/up")
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador Windows actualizado:", data);
-                window.open("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe");
-            })
-            .catch(err => console.error("Error al incrementar contador Windows:", err));
-    });
-
-    document.getElementById('btnMac').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        fetch("https://api.counterapi.dev/v2/rs/Mac/up")
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador Mac actualizado:", data);
-                window.open("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg");
-            })
-            .catch(err => console.error("Error al incrementar contador Mac:", err));
-    });
 </script>
 
 <footer>
