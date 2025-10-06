@@ -226,7 +226,6 @@
     Seleccione su sistema operativo para iniciar la descarga de RustDesk.
 </p>
 
-<!-- Quitamos download de los links para evitar doble conteo -->
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
    class="download-link" id="btnWin">
    <img src="windows.svg" alt="Windows"> Descargar para Windows
@@ -251,13 +250,11 @@
 <script>
     const gif = document.getElementById('downloadGif');
 
-    // Función para manejar descarga + contador
     function handleDownload(url, counterUrl) {
         fetch(counterUrl)
             .then(res => res.json())
             .then(data => {
                 console.log("Contador actualizado:", data);
-                // Descarga directa
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = url.split('/').pop();
@@ -268,7 +265,6 @@
             .catch(err => console.error("Error al incrementar contador:", err));
     }
 
-    // Windows
     document.getElementById('btnWin').addEventListener('click', e => {
         e.preventDefault();
         gif.style.display = 'block';
@@ -278,7 +274,6 @@
         );
     });
 
-    // Mac
     document.getElementById('btnMac').addEventListener('click', e => {
         e.preventDefault();
         gif.style.display = 'block';
@@ -335,7 +330,8 @@
 </script>
 
 <footer>
-    <p>Distribución segura de RustDesk por <strong>Robert Software</strong></p>
+    <p>Distribución verificada y soporte remoto RustDesk por <strong>Robert Software</strong></p>
+    <p><em>Certificado en soporte remoto RustDesk – Robert Software</em></p>
     <p>© 2025 Robert Software. Todos los derechos reservados.</p>
     <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
         <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
