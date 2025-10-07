@@ -113,9 +113,9 @@
         color: #555;
         text-align: center;
         background-color: #e6eefb;
-        padding: 10px 20px;
+        padding: 20px;
         line-height: 1.4;
-        max-width: 800px;
+        max-width: 900px;
         margin: 40px auto 0;
     }
 
@@ -508,7 +508,6 @@
         );
     });
 
-    // Efecto de brillo del botón al pasar el mouse
     document.querySelectorAll('.download-link').forEach(link => {
         link.addEventListener('mousemove', e => {
             const rect = e.target.getBoundingClientRect();
@@ -521,7 +520,6 @@
         });
     });
 
-    // Carrusel
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const leftArrow = document.querySelector('.carousel-arrow-left');
@@ -547,8 +545,12 @@
 </script>
 
 <footer>
-    <p>© 2025 Robert Software - Todos los derechos reservados</p>
-    <p>WhatsApp: <a href="https://wa.me/51945482880">945482880</a> | Instagram: <a href="https://www.instagram.com/robert.softwar">@robert.softwar</a> | Web: <a href="https://www.robert-software.com">www.robert-software.com</a></p>
+    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
+        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
+    </p>
 </footer>
 
 </body>
