@@ -10,106 +10,30 @@
         font-family: Arial, sans-serif;
         background-color: #f0f2f5;
         color: #333;
-        text-align: center;
-        padding: 40px 20px 20px 20px;
         margin: 0;
-        position: relative;
-        min-height: 100vh;
+        padding: 0;
     }
 
-    .logo {
-        max-width: 180px;
-        margin: 10px 0;
-    }
-
-    .backup-text {
-        font-size: 14px;
-        margin-bottom: 10px;
-        color: #555;
-    }
-
-    h1 {
-        font-size: 36px; 
-        margin: 15px 0;
-        font-weight: bold;
-        color: #1a1a1a;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .message {
-        font-size: 16px;
-        margin-top: 15px;
-        line-height: 1.5;
-        color: #333;
-    }
-
-    .download-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin: 10px;
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .download-link:hover {
-        background-color: #0056b3;
-        transform: translateY(-2px);
-    }
-
-    .download-link img {
-        width: 24px;
-        height: 24px;
-    }
-
-    /* GIF FLECHA */
-    .arrow-top {
-        position: fixed;
-        top: 50px;
-        right: 60px;
-        width: 60px;
-        z-index: 1000;
-        pointer-events: none;
-        display: none;
-        animation: float 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-8px); }
-    }
-
-    /* CINTA SUPERIOR */
+    /* ====== CINTA SUPERIOR ====== */
     .corporate-ticker {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6;
-        overflow: hidden;
+        background-color: #a8c4e6; 
         height: 40px;
-        z-index: 9999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         display: flex;
         align-items: center;
-        box-sizing: border-box;
+        overflow: hidden;
+        z-index: 9999;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     .ticker-text {
         display: inline-block;
         white-space: nowrap;
-        color: #ffffff;
+        color: #fff;
         font-weight: 600;
-        font-family: 'Arial', sans-serif;
         font-size: 16px;
         padding-left: 100%;
         animation: scrollTicker 20s linear infinite;
@@ -118,199 +42,109 @@
         gap: 10px;
     }
 
-    .ticker-text img {
-        height: 28px;
-    }
+    .ticker-text img { height: 28px; }
 
     @keyframes scrollTicker {
         0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
     }
 
-    /* CARRUSEL */
-    .carousel {
+    /* ====== HEADER ====== */
+    header {
+        text-align: center;
+        padding: 70px 20px 20px 20px;
         position: relative;
-        max-width: 750px;
-        margin: 20px auto;
-        overflow: hidden;
-        border-radius: 12px;
-        border: 1px solid rgba(0,0,0,0.05);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-        touch-action: pan-x;
-    }
+    .logo { max-width: 180px; margin-bottom: 8px; }
+    .backup-text { font-size: 14px; color: #555; margin-bottom: 12px; }
+    h1 { font-size: 36px; margin: 5px 0; font-weight: bold; color: #1a1a1a; }
+    .arrow-top { width: 60px; display: block; margin: 10px auto; }
 
-    .carousel-track img {
-        width: 100%;
-        flex-shrink: 0;
-        border-radius: 12px;
-        user-select: none;
-        pointer-events: none;
-    }
-
-    .carousel-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0,0,0,0.3);
+    /* ====== DESCARGAS ====== */
+    .download-links { margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .download-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 25px;
+        background-color: #007bff;
         color: white;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 8px 12px;
-        border-radius: 50%;
-        z-index: 10;
-        transition: background-color 0.2s;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: background-color 0.3s, transform 0.2s;
     }
+    .download-link:hover { background-color: #0056b3; transform: translateY(-2px); }
+    .download-link img { width: 24px; height: 24px; }
 
-    .carousel-arrow:hover {
-        background-color: rgba(0,0,0,0.6);
-    }
-
+    /* ====== CARRUSEL ====== */
+    .carousel { position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .carousel-track { display: flex; transition: transform 0.5s ease; touch-action: pan-x; }
+    .carousel-track img { width: 100%; flex-shrink: 0; user-select: none; pointer-events: none; }
+    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.3); color: white; border: none; font-size: 24px; cursor: pointer; padding: 8px 12px; border-radius: 50%; z-index: 10; transition: background-color 0.2s; }
+    .carousel-arrow:hover { background-color: rgba(0,0,0,0.6); }
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* PRODUCTOS ABAJO DEL CARRUSEL */
-    .products-section {
-        max-width: 950px;
-        margin: 30px auto 50px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .product {
-        width: 280px;
-        text-align: left;
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .product h3 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .product p {
-        font-size: 14px;
-        margin: 3px 0;
-    }
-
+    /* ====== PRODUCTOS ====== */
+    .products { max-width: 900px; margin: 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 0 20px; }
+    .product { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: left; }
+    .product h3 { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+    .product p { font-size: 14px; margin: 3px 0; }
     .buy-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 5px;
-        padding: 8px 12px;
-        background-color: #28a745;
-        color: white;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: bold;
-        transition: background-color 0.2s;
+        display: inline-flex; align-items: center; gap: 6px; margin-top: 5px;
+        padding: 8px 12px; background-color: #28a745; color: white; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold; transition: background-color 0.2s;
     }
+    .buy-button:hover { background-color: #1e7e34; }
+    .small-note { font-size: 11px; color: #fff; background-color: #1b5e20; padding: 1px 4px; border-radius: 3px; }
 
-    .buy-button:hover {
-        background-color: #1e7e34;
-    }
-
-    .small-note {
-        font-size: 11px;
-        color: #fff;
-        background-color: #1b5e20;
-        padding: 1px 4px;
-        border-radius: 3px;
-    }
-
-    /* BOTÓN SOPORTE REMOTO */
+    /* ====== SECCIÓN SOPORTE REMOTO ====== */
     .remote-support {
-        max-width: 900px;
-        margin: 40px auto;
-        background-color: #007bff;
-        color: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin: 50px 0;
+        padding: 60px 20px;
         text-align: center;
+        color: white;
+        background: linear-gradient(135deg, rgba(0,123,255,0.7), rgba(0,198,255,0.7)), url('tech-background.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-
-    .remote-support h2 {
-        margin-bottom: 15px;
-    }
-
+    .remote-support h2 { font-size: 32px; margin-bottom: 20px; }
+    .remote-support p { font-size: 18px; margin-bottom: 30px; }
     .remote-support a {
         display: inline-block;
         padding: 12px 25px;
         background-color: #ff5722;
         color: white;
-        text-decoration: none;
         font-weight: bold;
         border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
         transition: background-color 0.3s;
     }
+    .remote-support a:hover { background-color: #e64a19; }
 
-    .remote-support a:hover {
-        background-color: #e64a19;
-    }
-
-    /* SECCIÓN CONTACTO Y REDES */
-    .extra-section {
-        max-width: 950px;
-        margin: 50px auto 30px;
-        background-color: #ffffff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    /* ====== FOOTER ====== */
+    footer {
+        font-size: 14px;
+        color: #555;
         text-align: center;
+        background-color: #f0f2f5;
+        padding: 20px;
+        line-height: 1.4;
+        margin-top: 40px;
+    }
+    footer a { color: #007bff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; color: #004080; }
+
+    @media (max-width: 600px) {
+        .download-link { width: 80%; font-size: 18px; }
     }
 
-    .extra-section h2 {
-        margin-bottom: 15px;
-    }
-
-    .social-links a {
-        margin: 0 10px;
-        font-size: 20px;
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .social-links a:hover {
-        color: #0056b3;
-    }
-
-    .newsletter input[type="email"] {
-        padding: 10px;
-        width: 60%;
-        max-width: 300px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        margin-right: 10px;
-    }
-
-    .newsletter button {
-        padding: 10px 15px;
-        border: none;
-        background-color: #28a745;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .newsletter button:hover {
-        background-color: #1e7e34;
-    }
 </style>
 </head>
 <body>
@@ -321,27 +155,25 @@
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
     <img src="solzze-logo.png" alt="Solzze Logo">
     <img src="rs-logo.png" alt="RS Logo">
-    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional y confiable.
+    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional, segura y confiable.
   </div>
 </div>
 
-<!-- RESPALDO Y LOGO -->
-<p class="backup-text">Respaldado por:</p>
-<img src="logo.png" alt="RobertSoftware" class="logo">
+<header>
+    <p class="backup-text">Respaldado por:</p>
+    <img src="logo.png" alt="RobertSoftware" class="logo">
+    <h1>RustDesk</h1>
+    <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<h1>RustDesk</h1>
-<p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
-
-<!-- BOTONES DE DESCARGA -->
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link" id="btnWin">
-   <img src="windows.svg" alt="Windows"> Descargar para Windows
-</a>
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link" id="btnMac">
-   <img src="macos.svg" alt="macOS"> Descargar para macOS
-</a>
-
-<!-- GIF -->
-<img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
+    <div class="download-links">
+        <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link" id="btnWin">
+            <img src="windows.svg" alt="Windows"> Descargar para Windows
+        </a>
+        <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link" id="btnMac">
+            <img src="macos.svg" alt="macOS"> Descargar para macOS
+        </a>
+    </div>
+</header>
 
 <!-- CARRUSEL -->
 <div class="carousel">
@@ -355,17 +187,17 @@
     <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- PRODUCTOS ABAJO DEL CARRUSEL -->
-<div class="products-section">
+<!-- PRODUCTOS -->
+<div class="products">
     <div class="product">
         <h3>Software Ofimático</h3>
-        <p>Soluciones completas para documentos, hojas de cálculo y presentaciones.</p>
+        <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
         <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
         <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
     <div class="product">
         <h3>Antivirus</h3>
-        <p>Protección de tus equipos por 1 año contra virus y malware.</p>
+        <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
         <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
         <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
@@ -376,47 +208,19 @@
         <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
     <div class="product">
-        <h3>Software de Diseño y Creatividad</h3>
-        <p>Acceso a herramientas de diseño profesional con suscripción anual.</p>
-        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
-    </div>
-    <div class="product">
         <h3>Edición de Video</h3>
-        <p>Programas profesionales para crear contenido de calidad.</p>
+        <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
         <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
         <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
-    <div class="product">
-        <h3>Producción Musical</h3>
-        <p>Software para composición, mezcla y edición de audio profesional.</p>
-        <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
-    </div>
 </div>
 
-<!-- BOTÓN SOPORTE REMOTO -->
-<div class="remote-support">
-    <h2>¿Necesitas soporte remoto?</h2>
-    <p>Haz clic en el botón para solicitar asistencia remota rápida y segura con nuestro equipo profesional.</p>
-    <a href="https://wa.me/51945482880" target="_blank">Solicitar soporte remoto</a>
-</div>
-
-<!-- SECCIÓN EXTRA: CONTACTO Y REDES -->
-<div class="extra-section">
-    <h2>Contacto y Redes Sociales</h2>
-    <p>Estamos disponibles para consultas, soporte y novedades.</p>
-    <div class="social-links">
-        <a href="https://www.facebook.com/RobertSoftware" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com/robert.softwar" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@robertsoftware" target="_blank">TikTok</a>
-    </div>
-    <div class="newsletter">
-        <p>Suscríbete a nuestro boletín para recibir noticias y ofertas:</p>
-        <input type="email" placeholder="Tu correo electrónico">
-        <button>Suscribirse</button>
-    </div>
-</div>
+<!-- SOPORTE REMOTO -->
+<section class="remote-support">
+    <h2>Solicitar Soporte Remoto</h2>
+    <p>Conéctese con nuestros técnicos profesionales para asistencia inmediata y segura en su equipo.</p>
+    <a href="https://wa.me/51945482880" target="_blank">Solicitar Soporte</a>
+</section>
 
 <footer>
     <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
@@ -428,31 +232,46 @@
 </footer>
 
 <script>
+    // DESCARGAS
     const gif = document.getElementById('downloadGif');
-
-    function handleDownload(url) {
-        gif.style.display = 'block';
-        window.location.href = url;
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
     }
 
-    document.getElementById('btnWin').addEventListener('click', e => { e.preventDefault(); handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe"); });
-    document.getElementById('btnMac').addEventListener('click', e => { e.preventDefault(); handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg"); });
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault(); gif.style.display = 'block';
+        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe", "https://api.counterapi.dev/v2/rs/Win/up");
+    });
+
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault(); gif.style.display = 'block';
+        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg", "https://api.counterapi.dev/v2/rs/Mac/up");
+    });
 
     // CARRUSEL
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-arrow-left');
     const nextButton = document.querySelector('.carousel-arrow-right');
-    let index = 0;
-    const total = slides.length;
+    let index = 0; const total = slides.length;
 
     function updateCarousel() { track.style.transform = `translateX(-${index * 100}%)`; }
+
     nextButton.addEventListener('click', () => { index = (index + 1) % total; updateCarousel(); });
     prevButton.addEventListener('click', () => { index = (index - 1 + total) % total; updateCarousel(); });
-
     setInterval(() => { index = (index + 1) % total; updateCarousel(); }, 5000);
 
-    // TOUCH CARRUSEL
     let startX = 0; let isDragging = false;
     track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
     track.addEventListener('touchmove', e => {
