@@ -225,6 +225,69 @@
         right: 10px;
     }
 
+    /* ==== SECCIÓN INFORMATIVA ==== */
+    .info-rectangle {
+        max-width: 900px;
+        margin: 40px auto;
+        background: linear-gradient(135deg, #f0f4f9, #dbe7f7);
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .info-rectangle p {
+        font-size: 16px;
+        color: #1a1a1a;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .info-rectangle .download-link {
+        padding: 10px 25px;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.3s, transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .info-rectangle .download-link:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .info-rectangle .download-link::after {
+        content: '';
+        position: absolute;
+        top: var(--y, 50%);
+        left: var(--x, 50%);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.0) 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .info-rectangle .download-link.active::after {
+        opacity: 1;
+    }
+
     /* ==== SECCIÓN DE PRODUCTOS ==== */
     .products-section {
         max-width: 1100px;
@@ -235,7 +298,6 @@
         text-align: left;
     }
 
-    /* Fondo degradado para todo el cuadro del producto */
     .product-card {
         background: linear-gradient(135deg, #f7f9fc, #e6eefb);
         padding: 20px;
@@ -249,7 +311,6 @@
         overflow: hidden;
     }
 
-    /* Brillo animado al pasar el mouse */
     .product-card::after {
         content: '';
         position: absolute;
@@ -292,7 +353,6 @@
         z-index: 1;
     }
 
-    /* Precio sin fondo */
     .product-card .price {
         font-weight: bold;
         color: #1a1a1a;
@@ -396,6 +456,17 @@
     <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
+<!-- ==== SECCIÓN INFORMATIVA ==== -->
+<div class="info-rectangle">
+    <p>
+        RustDesk es una herramienta de conexión remota profesional, segura y confiable.
+        Permite gestionar equipos a distancia sin complicaciones, con soporte multiplataforma y cifrado de extremo a extremo.
+    </p>
+    <a href="https://rustdesk.com/" target="_blank" class="download-link">
+        Más información
+    </a>
+</div>
+
 <!-- ==== SECCIÓN DE PRODUCTOS ==== -->
 <div class="products-section">
     <div class="product-card">
@@ -453,66 +524,19 @@
             <img src="whatsapp-icon.png" alt=""> Consultar
         </a>
     </div>
-
-    <div class="product-card">
-        <h3>Música y Producción</h3>
-        <p>Grabación y edición de audio profesional.</p>
-        <p class="price">- S/. 20 (Perú) / CLP 9.500 (Chile)</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
-            <img src="whatsapp-icon.png" alt=""> Consultar
-        </a>
-    </div>
-
-    <div class="product-card">
-        <h3>Otros Programas Especializados</h3>
-        <p>La mayoría de productos profesionales del mercado.</p>
-        <p class="price">- Consulte por el programa o licencia que busca</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
-            <img src="whatsapp-icon.png" alt=""> Consultar
-        </a>
-    </div>
 </div>
 
 <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float">
     <img src="whatsapp-icon.png" alt="WhatsApp">
 </a>
 
+<footer>
+    WhatsApp: <a href="https://wa.me/51945482880">945482880</a> |
+    Instagram: <a href="https://www.instagram.com/robert.softwar">robert.softwar</a> |
+    Página Web: <a href="https://www.robert-software.com">www.robert-software.com</a>
+</footer>
+
 <script>
-    const gif = document.getElementById('downloadGif');
-
-    function handleDownload(url, counterUrl) {
-        fetch(counterUrl)
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador actualizado:", data);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = url.split('/').pop();
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            })
-            .catch(err => console.error("Error al incrementar contador:", err));
-    }
-
-    document.getElementById('btnWin').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        handleDownload(
-            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
-            "https://api.counterapi.dev/v2/rs/Win/up"
-        );
-    });
-
-    document.getElementById('btnMac').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        handleDownload(
-            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
-            "https://api.counterapi.dev/v2/rs/Mac/up"
-        );
-    });
-
     document.querySelectorAll('.download-link').forEach(link => {
         link.addEventListener('mousemove', e => {
             const rect = e.target.getBoundingClientRect();
@@ -525,38 +549,33 @@
         });
     });
 
+    // Carousel simple
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
-    const leftArrow = document.querySelector('.carousel-arrow-left');
-    const rightArrow = document.querySelector('.carousel-arrow-right');
-    let index = 0;
+    const nextButton = document.querySelector('.carousel-arrow-right');
+    const prevButton = document.querySelector('.carousel-arrow-left');
+    let currentIndex = 0;
 
     function updateCarousel() {
-        const width = track.clientWidth;
-        track.style.transform = `translateX(-${index * width}px)`;
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
     }
 
-    leftArrow.addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
         updateCarousel();
     });
 
-    rightArrow.addEventListener('click', () => {
-        index = (index + 1) % slides.length;
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         updateCarousel();
     });
 
-    window.addEventListener('resize', updateCarousel);
+    // Mostrar flecha animada
+    const arrowGif = document.getElementById('downloadGif');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 100) arrowGif.style.display = 'block';
+        else arrowGif.style.display = 'none';
+    });
 </script>
-
-<footer>
-    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
-</footer>
-
 </body>
 </html>
