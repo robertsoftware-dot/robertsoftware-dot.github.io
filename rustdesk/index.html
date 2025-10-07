@@ -11,7 +11,7 @@
         background-color: #e6eefb;
         color: #333;
         text-align: center;
-        padding: 40px 20px;
+        padding: 20px;
         margin: 0;
         position: relative;
         min-height: 100vh;
@@ -19,7 +19,7 @@
 
     .logo {
         max-width: 180px;
-        margin-bottom: 20px;
+        margin: 10px 0;
     }
 
     .backup-text {
@@ -30,7 +30,7 @@
 
     h1 {
         font-size: 36px; 
-        margin: 15px 0;
+        margin: 10px 0 20px 0;
         font-weight: bold;
         color: #1a1a1a;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -38,7 +38,7 @@
 
     .message {
         font-size: 16px;
-        margin-top: 15px;
+        margin-top: 5px;
         line-height: 1.5;
         color: #333;
     }
@@ -48,7 +48,7 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        margin: 10px;
+        margin: 8px;
         padding: 12px 25px;
         background-color: #007bff;
         color: white;
@@ -108,10 +108,17 @@
         color: #004080;
     }
 
-    @media (max-width: 600px) {
-        .download-link {
-            width: 80%;
-            font-size: 18px;
+    @media (max-width: 900px) {
+        .main-content {
+            flex-direction: column;
+            align-items: center;
+        }
+        .products-column {
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+        .carousel-wrapper {
+            max-width: 90%;
         }
     }
 
@@ -153,10 +160,28 @@
         100% { transform: translateX(-100%); }
     }
 
+    /* Layout principal: columnas de productos a los lados del carrusel, debajo del ticker */
+    .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 60px; /* espacio debajo de la cinta */
+    }
+
+    .products-column {
+        flex: 1;
+        max-width: 250px;
+    }
+
+    .carousel-wrapper {
+        flex: 1;
+        max-width: 600px;
+    }
+
     .carousel {
         position: relative;
-        max-width: 600px;
-        margin: 30px auto;
+        width: 100%;
         overflow: hidden;
         border-radius: 12px;
         border: 1px solid rgba(0,0,0,0.05);
@@ -202,26 +227,6 @@
 
     .carousel-arrow-right {
         right: 10px;
-    }
-
-    /* Layout principal con carrusel central y columnas de productos */
-    .main-content {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 20px;
-        margin-top: 30px;
-        flex-wrap: wrap;
-    }
-
-    .products-column {
-        flex: 1;
-        max-width: 250px;
-    }
-
-    .carousel-wrapper {
-        flex: 1;
-        max-width: 600px;
     }
 
     /* Productos */
@@ -306,7 +311,7 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- MAIN CONTENT: columnas de productos y carrusel central -->
+<!-- MAIN CONTENT: columnas de productos a los lados del carrusel -->
 <div class="main-content">
 
     <!-- Columna izquierda -->
@@ -335,9 +340,17 @@
                 Comprar ahora <span class="small-note">WhatsApp</span>
             </a>
         </div>
+        <div class="product">
+            <h3>Edición de Video</h3>
+            <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
+            <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
     </div>
 
-    <!-- Carrusel central -->
+    <!-- Carrusel -->
     <div class="carousel-wrapper">
         <div class="carousel">
             <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
@@ -357,14 +370,6 @@
             <h3>Software de Diseño y Creatividad</h3>
             <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
             <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
-            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-                Comprar ahora <span class="small-note">WhatsApp</span>
-            </a>
-        </div>
-        <div class="product">
-            <h3>Edición de Video</h3>
-            <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
-            <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
             <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
                 Comprar ahora <span class="small-note">WhatsApp</span>
             </a>
@@ -474,17 +479,13 @@
         else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
     });
 
-    track.addEventListener('touchend', () => { isDragging = false; });
+    track.addEventListener('touchend', () => isDragging=false);
 
 </script>
 
 <footer>
-    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
+    <p>Contactos: <a href="https://wa.me/51945482880">WhatsApp: 945482880</a> | Instagram: <a href="https://www.instagram.com/robert.softwar">@robert.softwar</a> | Página Web: <a href="https://www.robert-software.com">www.robert-software.com</a></p>
+    <p>&copy; 2025 Robert Software. Todos los derechos reservados.</p>
 </footer>
 
 </body>
