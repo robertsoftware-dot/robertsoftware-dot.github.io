@@ -73,7 +73,6 @@
         height: 24px;
     }
 
-    /* ==== BRILLO CIRCULAR MÁS PEQUEÑO QUE SIGUE EL CURSOR ==== */
     .download-link::after {
         content: '';
         position: absolute;
@@ -242,6 +241,9 @@
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .product-card:hover {
@@ -268,7 +270,33 @@
         margin-top: 8px;
     }
 
-    /* ==== BOTON FLotante WhatsApp ==== */
+    .product-card .price::before {
+        content: "- ";
+    }
+
+    .product-card .whatsapp-btn {
+        margin-top: 12px;
+        background-color: #25d366;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        display: inline-block;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .product-card .whatsapp-btn:hover {
+        background-color: #128c4a;
+        transform: translateY(-2px);
+    }
+
+    .product-card .whatsapp-btn img {
+        width: 20px;
+        vertical-align: middle;
+        margin-right: 6px;
+    }
+
     .whatsapp-float {
         position: fixed;
         bottom: 30px;
@@ -342,47 +370,71 @@
     <div class="product-card">
         <h3>Software de Diseño</h3>
         <p>Herramientas independientes para diseño gráfico y proyectos visuales.</p>
-        <p class="price">Desde S/. 15 (Perú) / CLP 9.500 (Chile)</p>
-        <p>Suite de Creatividad (1 año): S/. 195 (Perú) / CLP 69.500 (Chile)</p>
+        <p class="price">S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <p class="price">Suite de Creatividad (1 año): S/. 195 / CLP 69.500</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Ofimática y Herramientas de Oficina</h3>
         <p>Aplicaciones para documentos, hojas de cálculo y presentaciones.</p>
-        <p class="price">Licencia permanente: Desde S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <p class="price">Licencia permanente: S/. 15 / CLP 9.500</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>PDF Profesional</h3>
         <p>Crear, editar y convertir archivos PDF de manera segura.</p>
-        <p class="price">Licencia permanente: Desde S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <p class="price">Licencia permanente: S/. 15 / CLP 9.500</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Antivirus Profesional</h3>
         <p>Protección completa contra virus y malware por 1 año, actualizaciones automáticas incluidas.</p>
-        <p class="price">Desde S/. 35 (Perú) / CLP 15.000 (Chile)</p>
+        <p class="price">S/. 35 / CLP 15.000</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Suite de Ingeniería / CAD Profesional</h3>
         <p>Modelado 3D y diseño técnico para ingeniería y arquitectura.</p>
-        <p class="price">1 año: S/. 65 / CLP 15.500 | 2 años: S/. 85 / CLP 25.900</p>
+        <p class="price">1 año: S/. 65 / CLP 15.500</p>
+        <p class="price">2 años: S/. 85 / CLP 25.900</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Edición de Video</h3>
         <p>Software para creación y edición de videos profesionales.</p>
-        <p class="price">Desde S/. 20 (Perú) / CLP 9.800 (Chile)</p>
+        <p class="price">S/. 20 / CLP 9.800</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Música y Producción</h3>
         <p>Grabación y edición de audio profesional.</p>
-        <p class="price">Desde S/. 20 (Perú) / CLP 9.500 (Chile)</p>
+        <p class="price">S/. 20 / CLP 9.500</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
     <div class="product-card">
         <h3>Otros Programas Especializados</h3>
         <p>La mayoría de productos profesionales del mercado.</p>
-        <p class="price">Consulte por el programa o licencia que busca.</p>
+        <p class="price">Consulte por el programa o licencia que busca</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
     </div>
 </div>
 
-<!-- ==== BOTON WhatsApp ==== -->
 <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float">
     <img src="whatsapp-icon.png" alt="WhatsApp">
 </a>
@@ -467,7 +519,6 @@
 
     track.addEventListener('touchend', () => { isDragging = false; });
 
-    // ==== BRILLO QUE SIGUE EL CURSOR ====
     const buttons = document.querySelectorAll('.download-link');
     buttons.forEach(btn => {
         btn.addEventListener('mousemove', e => {
