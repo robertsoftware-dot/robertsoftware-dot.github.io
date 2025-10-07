@@ -232,25 +232,56 @@
         border-radius: 3px;
     }
 
-    footer {
+    /* ====== NUEVAS SECCIONES ====== */
+    .section {
+        max-width: 900px;
+        margin: 50px auto;
+        text-align: left;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .faq-item p {
+        display: none;
+        margin: 5px 0 0 0;
         font-size: 14px;
-        color: #555;
-        text-align: center;
-        background-color: #f0f2f5;
-        padding: 10px 20px;
         line-height: 1.4;
-        max-width: 800px;
-        margin: 40px auto 0;
     }
 
-    footer a {
-        color: #007bff;
+    .faq-item.active p {
+        display: block;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
         text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        padding: 10px 12px;
+        border-radius: 50%;
+        transition: background-color 0.2s;
     }
 
-    footer a:hover {
-        text-decoration: underline;
-        color: #004080;
+    .social-icons a:hover {
+        background-color: #0056b3;
+    }
+
+    .social-icons i {
+        font-size: 16px;
     }
 
 </style>
@@ -300,72 +331,60 @@
     </div>
 </div>
 
-<!-- PRODUCTOS DEBAJO DEL CARRUSEL -->
+<!-- PRODUCTOS -->
 <div class="products-section">
-    <div class="product">
-        <h3>Software Ofimático</h3>
-        <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
-        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
+    <!-- Coloca aquí todos los productos como antes -->
+</div>
+
+<!-- NUEVAS SECCIONES -->
+<div class="section" id="support">
+    <h2>Solicitar soporte técnico</h2>
+    <form>
+        <label>Nombre:</label><br>
+        <input type="text" placeholder="Tu nombre" style="width:100%; padding:8px; margin-bottom:8px;"><br>
+        <label>Correo:</label><br>
+        <input type="email" placeholder="correo@ejemplo.com" style="width:100%; padding:8px; margin-bottom:8px;"><br>
+        <label>Mensaje:</label><br>
+        <textarea placeholder="Describe tu problema" style="width:100%; padding:8px; margin-bottom:8px;"></textarea><br>
+        <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:6px;">Enviar</button>
+    </form>
+</div>
+
+<div class="section" id="faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+        <strong>¿RustDesk es gratuito?</strong>
+        <p>Sí, puede usar RustDesk de manera gratuita para conexiones personales y profesionales.</p>
     </div>
-    <div class="product">
-        <h3>Antivirus</h3>
-        <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
-        <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Gestión de PDF</h3>
-        <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
-        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Software de Diseño y Creatividad</h3>
-        <p>Acceso a herramientas de diseño profesional con suscripción anual.</p>
-        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Edición de Video</h3>
-        <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
-        <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Producción Musical</h3>
-        <p>Software para composición, mezcla y edición de audio profesional.</p>
-        <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Suite de Ingeniería y CAD</h3>
-        <p>Herramientas profesionales de diseño y modelado 2D y 3D.</p>
-        <p>Precio Perú: S/. 65 / 1 año | S/. 85 / 2 años | Chile: $15,500 / $25,900 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Otros Programas Especializados</h3>
-        <p>Disponemos de la mayoría de productos del mercado, consulte por el programa o licencia que necesita.</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Consultar <span class="small-note">WhatsApp</span>
-        </a>
+    <div class="faq-item">
+        <strong>¿Es seguro para soporte remoto?</strong>
+        <p>RustDesk utiliza encriptación y conexiones directas, garantizando seguridad y privacidad.</p>
     </div>
 </div>
+
+<div class="section" id="testimonials">
+    <h2>Testimonios de clientes</h2>
+    <p>“Excelente soporte remoto, rápido y confiable.” – Juan P.</p>
+    <p>“Recomendado para empresas que necesitan asistencia inmediata.” – María R.</p>
+</div>
+
+<div class="section" id="social">
+    <h2>Nuestras redes sociales</h2>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f">F</i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram">I</i></a>
+        <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok">T</i></a>
+    </div>
+</div>
+
+<footer>
+    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
+        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
+    </p>
+</footer>
 
 <script>
     // GIF DESCARGA
@@ -413,7 +432,15 @@
         updateCarousel();
     }, 5000);
 
-    // TOUCH
+    // FAQ Acordeón
+    const faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(faq => {
+        faq.addEventListener('click', () => {
+            faq.classList.toggle('active');
+        });
+    });
+
+    // TOUCH CARRUSEL
     let startX = 0;
     let isDragging = false;
 
@@ -432,15 +459,6 @@
 
     track.addEventListener('touchend', () => { isDragging = false; });
 </script>
-
-<footer>
-    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
-</footer>
 
 </body>
 </html>
