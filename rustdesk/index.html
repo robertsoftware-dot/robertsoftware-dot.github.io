@@ -569,8 +569,7 @@
 </footer>
 
 <script>
-    <script>
-    // === CARRUSEL ===
+    // Carousel
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-arrow-left');
@@ -594,14 +593,15 @@
 
     window.addEventListener('resize', updateCarousel);
 
+    // <<< AQUI AGREGAMOS EL AUTO-SCROLL >>>
     setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateCarousel();
     }, 3000);
 
-    // === EFECTO HOVER EN BOTONES DE DESCARGA ===
-    const downloadButtonsHover = document.querySelectorAll('.download-link');
-    downloadButtonsHover.forEach(btn => {
+    // Download button effect
+    const downloadButtons = document.querySelectorAll('.download-link');
+    downloadButtons.forEach(btn => {
         btn.addEventListener('mousemove', e => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -613,14 +613,11 @@
         btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
     });
 
-    // === GIF SOLO AL HACER CLICK EN BOTONES DE DESCARGA ===
+    // Arrow GIF scroll
     const arrow = document.getElementById('downloadGif');
-    const downloadButtonsClick = document.querySelectorAll('#btnWin, #btnMac');
-
-    downloadButtonsClick.forEach(btn => {
-        btn.addEventListener('click', () => {
-            arrow.style.display = 'block'; // mostrar GIF al hacer clic
-        });
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 100) arrow.style.display = 'block';
+        else arrow.style.display = 'none';
     });
 </script>
 
