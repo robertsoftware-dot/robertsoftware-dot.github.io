@@ -19,7 +19,7 @@
 
     .logo {
         max-width: 180px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .backup-text {
@@ -71,13 +71,57 @@
         height: 24px;
     }
 
-    /* ====== CINTA SUPERIOR ORIGINAL ====== */
+    .arrow-top {
+        position: fixed;
+        top: 50px;
+        right: 60px;
+        width: 60px;
+        z-index: 1000;
+        pointer-events: none;
+        display: none;
+        animation: float 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
+    }
+
+    footer {
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        background-color: #f0f2f5;
+        padding: 10px 20px;
+        line-height: 1.4;
+        max-width: 800px;
+        margin: 40px auto 0;
+    }
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+        color: #004080;
+    }
+
+    @media (max-width: 600px) {
+        .download-link {
+            width: 80%;
+            font-size: 18px;
+        }
+    }
+
+    /* ====== CINTA SUPERIOR ====== */
     .corporate-ticker {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6; /* COLOR ORIGINAL */
+        background-color: #a8c4e6;
         overflow: hidden;
         height: 40px;
         z-index: 9999;
@@ -157,15 +201,61 @@
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* ====== PRODUCTOS ====== */
-    .products-column {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
+    /* ====== SECCION SOPORTE REMOTO ====== */
+    .support-section {
+        margin: 30px auto;
+        padding: 60px 20px;
+        color: #fff;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0066ff, #00ccff, #0066ff);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
+    .support-section h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .support-section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .support-section .support-button {
+        display: inline-block;
+        padding: 12px 28px;
+        background-color: #28a745;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .support-section .support-button:hover {
+        background-color: #1e7e34;
+    }
+
+    /* ====== SECCION PRODUCTOS ====== */
+    .products-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px auto;
+        max-width: 1200px;
     }
 
     .product {
-        margin-bottom: 20px;
+        width: 250px;
+        text-align: left;
         background-color: #ffffff;
         border-radius: 12px;
         padding: 15px;
@@ -173,7 +263,7 @@
     }
 
     .product h3 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         margin-bottom: 5px;
     }
@@ -211,74 +301,6 @@
         border-radius: 3px;
     }
 
-    /* ====== BOTON SOPORTE REMOTO CON GRADIENTE ANIMADO ====== */
-    .support-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 18px 30px;
-        font-weight: bold;
-        border-radius: 10px;
-        text-decoration: none;
-        font-size: 18px;
-        color: white;
-        background: linear-gradient(270deg, #00aaff, #0056b3, #00ffff);
-        background-size: 600% 600%;
-        animation: gradientMove 4s ease infinite;
-        transition: transform 0.3s;
-        margin: 20px 0;
-    }
-
-    .support-button:hover {
-        transform: scale(1.05);
-    }
-
-    @keyframes gradientMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    /* ====== GIF FLECHA ARRIBA ====== */
-    .arrow-top {
-        position: fixed;
-        top: 60px;
-        right: 60px;
-        width: 60px;
-        z-index: 1000;
-        pointer-events: none;
-        display: none;
-        animation: float 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-8px); }
-    }
-
-    /* ====== FOOTER ====== */
-    footer {
-        font-size: 14px;
-        color: #555;
-        text-align: center;
-        background-color: #f0f2f5;
-        padding: 20px;
-        line-height: 1.4;
-        max-width: 1000px;
-        margin: 40px auto 0;
-    }
-
-    footer a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-        color: #004080;
-    }
-
 </style>
 </head>
 <body>
@@ -289,14 +311,13 @@
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
     <img src="solzze-logo.png" alt="Solzze Logo">
     <img src="rs-logo.png" alt="RS Logo">
-    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional, segura y confiable.
+    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota utilizada para brindar soporte técnico profesional, seguro y confiable a nuestros clientes. Descargue las versiones más recientes y certificadas para Windows y macOS.
   </div>
 </div>
 
 <!-- GIF -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<!-- RESPALDO -->
 <p class="backup-text">Respaldado por:</p>
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
@@ -316,19 +337,28 @@
 </a>
 
 <!-- CARRUSEL -->
-<div class="carousel">
-    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
-    <div class="carousel-track">
-        <img src="1.jpg" alt="RustDesk 1">
-        <img src="2.png" alt="RustDesk 2">
-        <img src="3.png" alt="RustDesk 3">
-        <img src="4.png" alt="RustDesk 4">
+<div class="carousel-wrapper">
+    <div class="carousel">
+        <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
+        <div class="carousel-track">
+            <img src="1.jpg" alt="RustDesk 1">
+            <img src="2.png" alt="RustDesk 2">
+            <img src="3.png" alt="RustDesk 3">
+            <img src="4.png" alt="RustDesk 4">
+        </div>
+        <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
     </div>
-    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- SECCIÓN DE PRODUCTOS -->
-<div class="products-column">
+<!-- SECCION SOPORTE REMOTO -->
+<div class="support-section">
+    <h2>Solicitar Soporte Remoto</h2>
+    <p>Conéctese con nuestros técnicos de forma segura y profesional, de manera inmediata y confiable.</p>
+    <a href="https://wa.me/51945482880" class="support-button" target="_blank">Conectar Ahora</a>
+</div>
+
+<!-- SECCION PRODUCTOS -->
+<div class="products-section">
     <div class="product">
         <h3>Software Ofimático</h3>
         <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
@@ -346,6 +376,22 @@
         </a>
     </div>
     <div class="product">
+        <h3>Gestión de PDF</h3>
+        <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
+        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
+    </div>
+    <div class="product">
+        <h3>Software de Diseño y Creatividad</h3>
+        <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
+        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
+    </div>
+    <div class="product">
         <h3>Edición de Video</h3>
         <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
         <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
@@ -353,44 +399,50 @@
             Comprar ahora <span class="small-note">WhatsApp</span>
         </a>
     </div>
+    <div class="product">
+        <h3>Producción Musical</h3>
+        <p>Software para composición, mezcla y edición de audio profesional.</p>
+        <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
+    </div>
 </div>
-
-<!-- BOTON SOPORTE REMOTO -->
-<a href="https://wa.me/51945482880" target="_blank" class="support-button">
-    Solicitar Soporte Remoto
-</a>
-
-<!-- FOOTER -->
-<footer>
-    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
-        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
-    </p>
-</footer>
 
 <script>
     const gif = document.getElementById('downloadGif');
 
-    function handleDownload(url) {
-        gif.style.display = 'block';
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = url.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
     }
 
     document.getElementById('btnWin').addEventListener('click', e => {
         e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe");
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
     });
 
     document.getElementById('btnMac').addEventListener('click', e => {
         e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg");
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
     });
 
     const track = document.querySelector('.carousel-track');
@@ -437,6 +489,15 @@
 
     track.addEventListener('touchend', () => { isDragging = false; });
 </script>
+
+<footer>
+    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
+        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
+    </p>
+</footer>
 
 </body>
 </html>
