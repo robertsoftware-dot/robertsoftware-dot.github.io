@@ -601,6 +601,8 @@
 
     // Download button effect
     const downloadButtons = document.querySelectorAll('.download-link');
+    const arrow = document.getElementById('downloadGif');
+
     downloadButtons.forEach(btn => {
         btn.addEventListener('mousemove', e => {
             const rect = btn.getBoundingClientRect();
@@ -611,13 +613,14 @@
             btn.classList.add('active');
         });
         btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
-    });
 
-    // Arrow GIF scroll
-    const arrow = document.getElementById('downloadGif');
-    window.addEventListener('scroll', () => {
-        if(window.scrollY > 100) arrow.style.display = 'block';
-        else arrow.style.display = 'none';
+        // Mostrar el GIF SOLO al hacer clic en descargar
+        btn.addEventListener('click', () => {
+            arrow.style.display = 'block';
+            setTimeout(() => {
+                arrow.style.display = 'none';
+            }, 3000); // Oculta después de 3 segundos
+        });
     });
 </script>
 
