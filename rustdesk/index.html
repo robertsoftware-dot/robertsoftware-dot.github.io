@@ -11,7 +11,7 @@
         background-color: #f0f2f5;
         color: #333;
         text-align: center;
-        padding: 40px 20px;
+        padding: 40px 20px 20px 20px;
         margin: 0;
         position: relative;
         min-height: 100vh;
@@ -71,7 +71,7 @@
         height: 24px;
     }
 
-    /* ====== GIF FLECHA ====== */
+    /* GIF FLECHA */
     .arrow-top {
         position: fixed;
         top: 50px;
@@ -88,13 +88,13 @@
         100% { transform: translateY(-8px); }
     }
 
-    /* ====== CINTA SUPERIOR ====== */
+    /* CINTA SUPERIOR */
     .corporate-ticker {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6; /* COLOR ORIGINAL */
+        background-color: #a8c4e6;
         overflow: hidden;
         height: 40px;
         z-index: 9999;
@@ -127,10 +127,10 @@
         100% { transform: translateX(-100%); }
     }
 
-    /* ====== CARRUSEL ====== */
+    /* CARRUSEL */
     .carousel {
         position: relative;
-        max-width: 700px;
+        max-width: 750px;
         margin: 20px auto;
         overflow: hidden;
         border-radius: 12px;
@@ -174,9 +174,9 @@
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* ====== PRODUCTOS DEBAJO DEL CARRUSEL ====== */
+    /* PRODUCTOS ABAJO DEL CARRUSEL */
     .products-section {
-        max-width: 900px;
+        max-width: 950px;
         margin: 30px auto 50px;
         display: flex;
         flex-wrap: wrap;
@@ -232,58 +232,85 @@
         border-radius: 3px;
     }
 
-    /* ====== NUEVAS SECCIONES ====== */
-    .section {
+    /* BOTÓN SOPORTE REMOTO */
+    .remote-support {
         max-width: 900px;
-        margin: 50px auto;
-        text-align: left;
-        background: #fff;
+        margin: 40px auto;
+        background-color: #007bff;
+        color: #fff;
         padding: 25px;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
-    .section h2 {
-        font-size: 24px;
+    .remote-support h2 {
         margin-bottom: 15px;
-        color: #1a1a1a;
     }
 
-    .faq-item {
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
-
-    .faq-item p {
-        display: none;
-        margin: 5px 0 0 0;
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .faq-item.active p {
-        display: block;
-    }
-
-    .social-icons a {
+    .remote-support a {
         display: inline-block;
-        margin: 0 10px;
+        padding: 12px 25px;
+        background-color: #ff5722;
+        color: white;
         text-decoration: none;
-        color: #fff;
-        background-color: #007bff;
-        padding: 10px 12px;
-        border-radius: 50%;
-        transition: background-color 0.2s;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background-color 0.3s;
     }
 
-    .social-icons a:hover {
-        background-color: #0056b3;
+    .remote-support a:hover {
+        background-color: #e64a19;
     }
 
-    .social-icons i {
-        font-size: 16px;
+    /* SECCIÓN CONTACTO Y REDES */
+    .extra-section {
+        max-width: 950px;
+        margin: 50px auto 30px;
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
+    .extra-section h2 {
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+        font-size: 20px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .social-links a:hover {
+        color: #0056b3;
+    }
+
+    .newsletter input[type="email"] {
+        padding: 10px;
+        width: 60%;
+        max-width: 300px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+    }
+
+    .newsletter button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .newsletter button:hover {
+        background-color: #1e7e34;
+    }
 </style>
 </head>
 <body>
@@ -294,7 +321,7 @@
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
     <img src="solzze-logo.png" alt="Solzze Logo">
     <img src="rs-logo.png" alt="RS Logo">
-    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional y confiable. Descargue las versiones más recientes para Windows y macOS.
+    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional y confiable.
   </div>
 </div>
 
@@ -306,74 +333,88 @@
 <p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
 
 <!-- BOTONES DE DESCARGA -->
-<a href="#" class="download-link" id="btnWin">
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link" id="btnWin">
    <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
-
-<a href="#" class="download-link" id="btnMac">
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link" id="btnMac">
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- GIF FLECHA -->
-<img src="flecha-arriba.gif" alt="Descargar" class="arrow-top" id="downloadGif">
+<!-- GIF -->
+<img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
 <!-- CARRUSEL -->
-<div class="carousel-wrapper">
-    <div class="carousel">
-        <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
-        <div class="carousel-track">
-            <img src="1.jpg" alt="RustDesk 1">
-            <img src="2.png" alt="RustDesk 2">
-            <img src="3.png" alt="RustDesk 3">
-            <img src="4.png" alt="RustDesk 4">
-        </div>
-        <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
+<div class="carousel">
+    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
+    <div class="carousel-track">
+        <img src="1.jpg" alt="RustDesk 1">
+        <img src="2.png" alt="RustDesk 2">
+        <img src="3.png" alt="RustDesk 3">
+        <img src="4.png" alt="RustDesk 4">
     </div>
+    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- PRODUCTOS -->
+<!-- PRODUCTOS ABAJO DEL CARRUSEL -->
 <div class="products-section">
-    <!-- Coloca aquí todos los productos como antes -->
-</div>
-
-<!-- NUEVAS SECCIONES -->
-<div class="section" id="support">
-    <h2>Solicitar soporte técnico</h2>
-    <form>
-        <label>Nombre:</label><br>
-        <input type="text" placeholder="Tu nombre" style="width:100%; padding:8px; margin-bottom:8px;"><br>
-        <label>Correo:</label><br>
-        <input type="email" placeholder="correo@ejemplo.com" style="width:100%; padding:8px; margin-bottom:8px;"><br>
-        <label>Mensaje:</label><br>
-        <textarea placeholder="Describe tu problema" style="width:100%; padding:8px; margin-bottom:8px;"></textarea><br>
-        <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:6px;">Enviar</button>
-    </form>
-</div>
-
-<div class="section" id="faq">
-    <h2>Preguntas frecuentes</h2>
-    <div class="faq-item">
-        <strong>¿RustDesk es gratuito?</strong>
-        <p>Sí, puede usar RustDesk de manera gratuita para conexiones personales y profesionales.</p>
+    <div class="product">
+        <h3>Software Ofimático</h3>
+        <p>Soluciones completas para documentos, hojas de cálculo y presentaciones.</p>
+        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
-    <div class="faq-item">
-        <strong>¿Es seguro para soporte remoto?</strong>
-        <p>RustDesk utiliza encriptación y conexiones directas, garantizando seguridad y privacidad.</p>
+    <div class="product">
+        <h3>Antivirus</h3>
+        <p>Protección de tus equipos por 1 año contra virus y malware.</p>
+        <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+    </div>
+    <div class="product">
+        <h3>Gestión de PDF</h3>
+        <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
+        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+    </div>
+    <div class="product">
+        <h3>Software de Diseño y Creatividad</h3>
+        <p>Acceso a herramientas de diseño profesional con suscripción anual.</p>
+        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+    </div>
+    <div class="product">
+        <h3>Edición de Video</h3>
+        <p>Programas profesionales para crear contenido de calidad.</p>
+        <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+    </div>
+    <div class="product">
+        <h3>Producción Musical</h3>
+        <p>Software para composición, mezcla y edición de audio profesional.</p>
+        <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
     </div>
 </div>
 
-<div class="section" id="testimonials">
-    <h2>Testimonios de clientes</h2>
-    <p>“Excelente soporte remoto, rápido y confiable.” – Juan P.</p>
-    <p>“Recomendado para empresas que necesitan asistencia inmediata.” – María R.</p>
+<!-- BOTÓN SOPORTE REMOTO -->
+<div class="remote-support">
+    <h2>¿Necesitas soporte remoto?</h2>
+    <p>Haz clic en el botón para solicitar asistencia remota rápida y segura con nuestro equipo profesional.</p>
+    <a href="https://wa.me/51945482880" target="_blank">Solicitar soporte remoto</a>
 </div>
 
-<div class="section" id="social">
-    <h2>Nuestras redes sociales</h2>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f">F</i></a>
-        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram">I</i></a>
-        <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok">T</i></a>
+<!-- SECCIÓN EXTRA: CONTACTO Y REDES -->
+<div class="extra-section">
+    <h2>Contacto y Redes Sociales</h2>
+    <p>Estamos disponibles para consultas, soporte y novedades.</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com/RobertSoftware" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/robert.softwar" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@robertsoftware" target="_blank">TikTok</a>
+    </div>
+    <div class="newsletter">
+        <p>Suscríbete a nuestro boletín para recibir noticias y ofertas:</p>
+        <input type="email" placeholder="Tu correo electrónico">
+        <button>Suscribirse</button>
     </div>
 </div>
 
@@ -387,7 +428,6 @@
 </footer>
 
 <script>
-    // GIF DESCARGA
     const gif = document.getElementById('downloadGif');
 
     function handleDownload(url) {
@@ -395,15 +435,8 @@
         window.location.href = url;
     }
 
-    document.getElementById('btnWin').addEventListener('click', e => {
-        e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe");
-    });
-
-    document.getElementById('btnMac').addEventListener('click', e => {
-        e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg");
-    });
+    document.getElementById('btnWin').addEventListener('click', e => { e.preventDefault(); handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe"); });
+    document.getElementById('btnMac').addEventListener('click', e => { e.preventDefault(); handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg"); });
 
     // CARRUSEL
     const track = document.querySelector('.carousel-track');
@@ -413,42 +446,15 @@
     let index = 0;
     const total = slides.length;
 
-    function updateCarousel() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-    }
+    function updateCarousel() { track.style.transform = `translateX(-${index * 100}%)`; }
+    nextButton.addEventListener('click', () => { index = (index + 1) % total; updateCarousel(); });
+    prevButton.addEventListener('click', () => { index = (index - 1 + total) % total; updateCarousel(); });
 
-    nextButton.addEventListener('click', () => {
-        index = (index + 1) % total;
-        updateCarousel();
-    });
-
-    prevButton.addEventListener('click', () => {
-        index = (index - 1 + total) % total;
-        updateCarousel();
-    });
-
-    setInterval(() => {
-        index = (index + 1) % total;
-        updateCarousel();
-    }, 5000);
-
-    // FAQ Acordeón
-    const faqs = document.querySelectorAll('.faq-item');
-    faqs.forEach(faq => {
-        faq.addEventListener('click', () => {
-            faq.classList.toggle('active');
-        });
-    });
+    setInterval(() => { index = (index + 1) % total; updateCarousel(); }, 5000);
 
     // TOUCH CARRUSEL
-    let startX = 0;
-    let isDragging = false;
-
-    track.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-    });
-
+    let startX = 0; let isDragging = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
     track.addEventListener('touchmove', e => {
         if(!isDragging) return;
         const moveX = e.touches[0].clientX;
@@ -456,7 +462,6 @@
         if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
         else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
     });
-
     track.addEventListener('touchend', () => { isDragging = false; });
 </script>
 
