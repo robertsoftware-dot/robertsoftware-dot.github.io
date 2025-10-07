@@ -253,25 +253,26 @@
     .product-card::after {
         content: '';
         position: absolute;
-        top: -100%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: rgba(255, 255, 255, 0.25);
+        top: -120%;
+        left: -60%;
+        width: 220%;
+        height: 220%;
+        background: rgba(255, 255, 255, 0.45);
         transform: rotate(25deg);
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: opacity 0.2s;
     }
 
     .product-card:hover::after {
         opacity: 1;
-        animation: shineCard 3s linear infinite;
+        animation: shineCard 2s linear infinite;
     }
 
     @keyframes shineCard {
-        0% { transform: rotate(25deg) translateY(-100%); }
-        100% { transform: rotate(25deg) translateY(100%); }
+        0% { transform: rotate(25deg) translateY(-120%); }
+        50% { transform: rotate(25deg) translateY(50%); }
+        100% { transform: rotate(25deg) translateY(120%); }
     }
 
     .product-card h3 {
