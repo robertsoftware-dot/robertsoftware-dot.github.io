@@ -355,18 +355,18 @@
 
     /* NUEVA SECCIÓN DE INFORMACIÓN */
     .rustdesk-info {
-        background-color: #1f2a45;
-        color: #e6eefb;
+        background: linear-gradient(135deg, #dbe6f5, #a8c4e6); /* degradado más claro */
+        color: #1a1a1a; /* texto oscuro para mejor legibilidad */
         max-width: 900px;
         margin: 40px auto;
         padding: 30px 20px;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         text-align: left;
     }
 
     .rustdesk-info h2 {
-        color: #00aaff;
+        color: #007bff; /* título azul más suave */
         font-size: 24px;
         margin-bottom: 15px;
     }
@@ -503,106 +503,16 @@
     <div class="product-card">
         <h3>Edición de Video</h3>
         <p>Software para creación y edición de videos profesionales.</p>
-        <p class="price">- S/. 20 (Perú) / CLP 9.800 (Chile)</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
-            <img src="whatsapp-icon.png" alt=""> Consultar
-        </a>
-    </div>
-
-    <div class="product-card">
-        <h3>Música y Producción</h3>
-        <p>Grabación y edición de audio profesional.</p>
-        <p class="price">- S/. 20 (Perú) / CLP 9.500 (Chile)</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
-            <img src="whatsapp-icon.png" alt=""> Consultar
-        </a>
-    </div>
-
-    <div class="product-card">
-        <h3>Otros Programas Especializados</h3>
-        <p>La mayoría de productos profesionales del mercado.</p>
-        <p class="price">- Consulte por el programa o licencia que busca</p>
+        <p class="price">- Licencia permanente: S/. 45 (Perú) / CLP 18.900 (Chile)</p>
         <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
             <img src="whatsapp-icon.png" alt=""> Consultar
         </a>
     </div>
 </div>
 
-<a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float">
-    <img src="whatsapp-icon.png" alt="WhatsApp">
-</a>
-
-<script>
-    const gif = document.getElementById('downloadGif');
-
-    function handleDownload(url, counterUrl) {
-        fetch(counterUrl)
-            .then(res => res.json())
-            .then(data => {
-                console.log("Contador actualizado:", data);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = url.split('/').pop();
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            })
-            .catch(err => console.error("Error al incrementar contador:", err));
-    }
-
-    document.getElementById('btnWin').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        handleDownload(
-            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
-            "https://api.counterapi.dev/v2/rs/Win/up"
-        );
-    });
-
-    document.getElementById('btnMac').addEventListener('click', e => {
-        e.preventDefault();
-        gif.style.display = 'block';
-        handleDownload(
-            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
-            "https://api.counterapi.dev/v2/rs/Mac/up"
-        );
-    });
-
-    document.querySelectorAll('.download-link').forEach(link => {
-        link.addEventListener('mousemove', e => {
-            const rect = e.target.getBoundingClientRect();
-            link.style.setProperty('--x', e.clientX - rect.left + 'px');
-            link.style.setProperty('--y', e.clientY - rect.top + 'px');
-            link.classList.add('active');
-        });
-        link.addEventListener('mouseleave', () => {
-            link.classList.remove('active');
-        });
-    });
-
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const leftArrow = document.querySelector('.carousel-arrow-left');
-    const rightArrow = document.querySelector('.carousel-arrow-right');
-    let index = 0;
-
-    function updateCarousel() {
-        const width = track.clientWidth;
-        track.style.transform = `translateX(-${index * width}px)`;
-    }
-
-    leftArrow.addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        updateCarousel();
-    });
-
-    rightArrow.addEventListener('click', () => {
-        index = (index + 1) % slides.length;
-        updateCarousel();
-    });
-
-    window.addEventListener('resize', updateCarousel);
-</script>
+<div class="whatsapp-float">
+    <a href="https://wa.me/51945482880" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
+</div>
 
 <footer>
     <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
@@ -612,6 +522,53 @@
         o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
     </p>
 </footer>
+
+<script>
+    // Carousel
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-arrow-left');
+    const nextButton = document.querySelector('.carousel-arrow-right');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = 'translateX(-' + currentIndex * slideWidth + 'px)';
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+
+    // Download button effect
+    const downloadButtons = document.querySelectorAll('.download-link');
+    downloadButtons.forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            btn.style.setProperty('--x', x + 'px');
+            btn.style.setProperty('--y', y + 'px');
+            btn.classList.add('active');
+        });
+        btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
+    });
+
+    // Arrow GIF scroll
+    const arrow = document.getElementById('downloadGif');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 100) arrow.style.display = 'block';
+        else arrow.style.display = 'none';
+    });
+</script>
 
 </body>
 </html>
