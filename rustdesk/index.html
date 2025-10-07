@@ -204,30 +204,34 @@
         right: 10px;
     }
 
-    /* Nueva sección productos */
-    .products-container {
+    /* Layout principal con carrusel central y columnas de productos */
+    .main-content {
         display: flex;
         justify-content: center;
-        max-width: 1000px;
-        margin: 30px auto;
-        gap: 30px;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 30px;
+        flex-wrap: wrap;
     }
 
-    .product-column {
+    .products-column {
         flex: 1;
-        min-width: 280px;
-        max-width: 350px;
+        max-width: 250px;
+    }
+
+    .carousel-wrapper {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    /* Productos */
+    .product {
+        margin-bottom: 20px;
+        text-align: left;
         background-color: #f4f7fc;
         border-radius: 12px;
         padding: 15px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        overflow-y: auto;
-        max-height: 500px;
-    }
-
-    .product {
-        margin-bottom: 20px;
-        text-align: left;
     }
 
     .product h3 {
@@ -268,6 +272,7 @@
         padding: 1px 4px;
         border-radius: 3px;
     }
+
 </style>
 </head>
 <body>
@@ -301,20 +306,11 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<div class="carousel">
-    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
-    <div class="carousel-track">
-        <img src="1.jpg" alt="RustDesk 1">
-        <img src="2.png" alt="RustDesk 2">
-        <img src="3.png" alt="RustDesk 3">
-        <img src="4.png" alt="RustDesk 4">
-    </div>
-    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
-</div>
+<!-- MAIN CONTENT: columnas de productos y carrusel central -->
+<div class="main-content">
 
-<!-- NUEVA SECCIÓN PRODUCTOS -->
-<div class="products-container">
-    <div class="product-column">
+    <!-- Columna izquierda -->
+    <div class="products-column">
         <div class="product">
             <h3>Software Ofimático</h3>
             <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
@@ -341,7 +337,22 @@
         </div>
     </div>
 
-    <div class="product-column">
+    <!-- Carrusel central -->
+    <div class="carousel-wrapper">
+        <div class="carousel">
+            <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
+            <div class="carousel-track">
+                <img src="1.jpg" alt="RustDesk 1">
+                <img src="2.png" alt="RustDesk 2">
+                <img src="3.png" alt="RustDesk 3">
+                <img src="4.png" alt="RustDesk 4">
+            </div>
+            <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="products-column">
         <div class="product">
             <h3>Software de Diseño y Creatividad</h3>
             <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
@@ -382,6 +393,7 @@
             </a>
         </div>
     </div>
+
 </div>
 
 <script>
