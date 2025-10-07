@@ -264,14 +264,41 @@
         color: #333;
     }
 
+    /* ==== PRECIO CON FONDO Y EFECTO DE BRILLO ==== */
     .product-card .price {
         font-weight: bold;
         color: #1a1a1a;
         margin-top: 8px;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        padding: 6px 10px;
+        border-radius: 6px;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* Eliminado ::before para que no aparezca doble guion */
-    /* .product-card .price::before { content: "- "; } */
+    .product-card .price::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: rotate(25deg) translateX(-100%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .product-card .price:hover::after {
+        opacity: 1;
+        animation: shine 2s linear;
+    }
+
+    @keyframes shine {
+        0% { transform: rotate(25deg) translateX(-100%); }
+        100% { transform: rotate(25deg) translateX(100%); }
+    }
 
     .product-card .whatsapp-btn {
         margin-top: 12px;
@@ -364,7 +391,7 @@
     <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- ==== SECCIÓN DE PRODUCTOS REFORMATEADA ==== -->
+<!-- ==== SECCIÓN DE PRODUCTOS ==== -->
 <div class="products-section">
     <div class="product-card">
         <h3>Software de Diseño</h3>
@@ -481,60 +508,47 @@
         );
     });
 
+    // Efecto de brillo del botón al pasar el mouse
+    document.querySelectorAll('.download-link').forEach(link => {
+        link.addEventListener('mousemove', e => {
+            const rect = e.target.getBoundingClientRect();
+            link.style.setProperty('--x', e.clientX - rect.left + 'px');
+            link.style.setProperty('--y', e.clientY - rect.top + 'px');
+            link.classList.add('active');
+        });
+        link.addEventListener('mouseleave', () => {
+            link.classList.remove('active');
+        });
+    });
+
+    // Carrusel
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-arrow-left');
-    const nextButton = document.querySelector('.carousel-arrow-right');
+    const leftArrow = document.querySelector('.carousel-arrow-left');
+    const rightArrow = document.querySelector('.carousel-arrow-right');
     let index = 0;
-    const total = slides.length;
 
     function updateCarousel() {
-        track.style.transform = `translateX(-${index * 100}%)`;
+        const width = track.clientWidth;
+        track.style.transform = `translateX(-${index * width}px)`;
     }
 
-    nextButton.addEventListener('click', () => {
-        index = (index + 1) % total;
+    leftArrow.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
         updateCarousel();
     });
 
-    prevButton.addEventListener('click', () => {
-        index = (index - 1 + total) % total;
+    rightArrow.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
         updateCarousel();
     });
 
-    setInterval(() => {
-        index = (index + 1) % total;
-        updateCarousel();
-    }, 5000);
-
-    let startX = 0;
-    let isDragging = false;
-
-    track.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-    });
-
-    track.addEventListener('touchmove', e => {
-        if(!isDragging) return;
-        const moveX = e.touches[0].clientX;
-        const diff = moveX - startX;
-        track.style.transform = `translateX(${-index*100 + diff/track.clientWidth*100}%)`;
-    });
-
-    track.addEventListener('touchend', e => {
-        isDragging = false;
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-        if(diff > 50) index = (index - 1 + total) % total;
-        else if(diff < -50) index = (index + 1) % total;
-        updateCarousel();
-    });
+    window.addEventListener('resize', updateCarousel);
 </script>
 
 <footer>
-    <p>© Robert Software | WhatsApp: 945482880 | Instagram: <a href="https://www.instagram.com/robert.softwar">robert.softwar</a> | Página Web: <a href="http://www.robert-software.com">www.robert-software.com</a></p>
-    <p>Este software se distribuye con fines educativos y de soporte técnico profesional.</p>
+    <p>© 2025 Robert Software - Todos los derechos reservados</p>
+    <p>WhatsApp: <a href="https://wa.me/51945482880">945482880</a> | Instagram: <a href="https://www.instagram.com/robert.softwar">@robert.softwar</a> | Web: <a href="https://www.robert-software.com">www.robert-software.com</a></p>
 </footer>
 
 </body>
