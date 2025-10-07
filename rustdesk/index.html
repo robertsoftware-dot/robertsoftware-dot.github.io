@@ -50,19 +50,35 @@
         gap: 8px;
         margin: 10px;
         padding: 12px 25px;
-        background-color: #007bff;
+        background-color: #1a73e8;
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
+        transition: background 0.3s, transform 0.2s;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .download-link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+        transition: all 0.3s ease;
+    }
+
+    .download-link:hover::after {
+        left: 100%;
     }
 
     .download-link:hover {
-        background-color: #0056b3;
         transform: translateY(-2px);
     }
 
@@ -121,7 +137,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6; /* COLOR ORIGINAL */
+        background-color: #a8c4e6; 
         overflow: hidden;
         height: 40px;
         z-index: 9999;
@@ -201,13 +217,13 @@
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* ====== SECCION SOPORTE REMOTO CON FONDO ANIMADO ====== */
+    /* ====== SECCION SOPORTE REMOTO CON FONDO ANIMADO SUAVE ====== */
     .support-section {
         margin: 30px auto;
         padding: 80px 20px;
         color: #fff;
         border-radius: 12px;
-        background: linear-gradient(270deg, #ff416c, #ff4b2b, #00c6ff, #0072ff, #43e97b, #38f9d7);
+        background: linear-gradient(270deg, #4a90e2, #50e3c2, #2d9cdb, #3bb1b1);
         background-size: 1200% 1200%;
         animation: gradientBG 6s linear infinite;
         text-align: center;
@@ -239,20 +255,36 @@
         font-size: 18px;
         font-weight: bold;
         color: #fff;
-        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        background-color: #1a73e8;
         border-radius: 10px;
         text-decoration: none;
         transition: all 0.3s ease;
         box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .support-section .support-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+        transition: all 0.3s ease;
+    }
+
+    .support-section .support-button:hover::after {
+        left: 100%;
     }
 
     .support-section .support-button:hover {
-        background: linear-gradient(135deg, #ff4b2b, #ff416c);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
-    /* ====== PRODUCTOS DEBAJO DEL CARRUSEL ====== */
+    /* ====== PRODUCTOS ====== */
     .products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -479,19 +511,23 @@
     track.addEventListener('touchmove', e => {
         if(!isDragging) return;
         const moveX = e.touches[0].clientX;
-        const diff = startX - moveX;
-        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
-        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
+        const diff = moveX - startX;
+        track.style.transform = `translateX(${-index * 100 + diff/track.offsetWidth*100}%)`;
     });
 
-    track.addEventListener('touchend', () => { isDragging = false; });
+    track.addEventListener('touchend', e => {
+        isDragging = false;
+        const moveX = e.changedTouches[0].clientX;
+        const diff = moveX - startX;
+        if(diff > 50) index = (index - 1 + total) % total;
+        else if(diff < -50) index = (index + 1) % total;
+        updateCarousel();
+    });
 </script>
 
 <footer>
-    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
-    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
-        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+    <p>
+        WhatsApp: <a href="https://wa.me/51945482880">945482880</a> 
         | Instagram: <a href="https://www.instagram.com/robert.softwar" target="_blank">@robert.softwar</a> 
         | Web: <a href="https://www.robert-software.com" target="_blank">www.robert-software.com</a>
     </p>
