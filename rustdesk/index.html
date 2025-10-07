@@ -566,6 +566,12 @@
 
     window.addEventListener('resize', updateCarousel);
 
+    // <<< AQUI AGREGAMOS EL AUTO-SCROLL >>>
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    }, 3000);
+
     // Download button effect
     const downloadButtons = document.querySelectorAll('.download-link');
     downloadButtons.forEach(btn => {
