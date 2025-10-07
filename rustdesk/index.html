@@ -10,77 +10,39 @@
         font-family: Arial, sans-serif;
         background-color: #f0f2f5;
         color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* ===== CINTA SUPERIOR ===== */
-    .corporate-ticker {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #a8c4e6; 
-        height: 40px;
-        display: flex;
-        align-items: center;
-        z-index: 9999;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-
-    .ticker-text {
-        display: inline-block;
-        white-space: nowrap;
-        color: #fff;
-        font-weight: 600;
-        font-size: 16px;
-        padding-left: 100%;
-        animation: scrollTicker 20s linear infinite;
-    }
-
-    .ticker-text img {
-        height: 28px;
-        vertical-align: middle;
-        margin-right: 10px;
-    }
-
-    @keyframes scrollTicker {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-
-    /* ===== LOGO Y RESPALDO ===== */
-    .logo-container {
         text-align: center;
-        margin-top: 60px;
-    }
-
-    .backup-text {
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: #555;
+        padding: 40px 20px;
+        margin: 0;
+        position: relative;
+        min-height: 100vh;
     }
 
     .logo {
         max-width: 180px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .backup-text {
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #555;
     }
 
     h1 {
         font-size: 36px; 
-        margin: 10px 0;
+        margin: 15px 0;
         font-weight: bold;
         color: #1a1a1a;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
     .message {
         font-size: 16px;
-        margin-bottom: 20px;
+        margin-top: 15px;
+        line-height: 1.5;
         color: #333;
     }
 
-    /* ===== BOTONES DE DESCARGA ===== */
     .download-link {
         display: inline-flex;
         align-items: center;
@@ -109,7 +71,6 @@
         height: 24px;
     }
 
-    /* ===== GIF DESCARGA ===== */
     .arrow-top {
         position: fixed;
         top: 50px;
@@ -126,14 +87,78 @@
         100% { transform: translateY(-8px); }
     }
 
-    /* ===== CARRUSEL ===== */
-    .carousel-wrapper {
+    footer {
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        background-color: #f0f2f5;
+        padding: 10px 20px;
+        line-height: 1.4;
         max-width: 800px;
-        margin: 30px auto;
+        margin: 40px auto 0;
     }
 
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+        color: #004080;
+    }
+
+    @media (max-width: 600px) {
+        .download-link {
+            width: 80%;
+            font-size: 18px;
+        }
+    }
+
+    /* ====== CINTA SUPERIOR ORIGINAL ====== */
+    .corporate-ticker {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #a8c4e6; /* COLOR ORIGINAL */
+        overflow: hidden;
+        height: 40px;
+        z-index: 9999;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .ticker-text {
+        display: inline-block;
+        white-space: nowrap;
+        color: #ffffff;
+        font-weight: 600;
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        padding-left: 100%;
+        animation: scrollTicker 20s linear infinite;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ticker-text img {
+        height: 28px;
+    }
+
+    @keyframes scrollTicker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* ====== CARRUSEL ====== */
     .carousel {
         position: relative;
+        max-width: 800px;
+        margin: 40px auto;
         overflow: hidden;
         border-radius: 12px;
         border: 1px solid rgba(0,0,0,0.05);
@@ -143,11 +168,13 @@
     .carousel-track {
         display: flex;
         transition: transform 0.5s ease;
+        touch-action: pan-x;
     }
 
     .carousel-track img {
         width: 100%;
         flex-shrink: 0;
+        border-radius: 12px;
         user-select: none;
         pointer-events: none;
     }
@@ -159,7 +186,7 @@
         background-color: rgba(0,0,0,0.3);
         color: white;
         border: none;
-        font-size: 30px;
+        font-size: 24px;
         cursor: pointer;
         padding: 8px 12px;
         border-radius: 50%;
@@ -174,70 +201,28 @@
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* ===== SECCIÓN SOPORTE REMOTO ===== */
-    .remote-support {
-        background: linear-gradient(135deg, #007bff, #00d4ff);
-        color: white;
-        text-align: center;
-        padding: 50px 20px;
-        margin: 40px 0;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        background-image: url('fondo-soporte.jpg');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    }
-
-    .remote-support h2 {
-        font-size: 28px;
-        margin-bottom: 15px;
-        font-weight: bold;
-    }
-
-    .remote-support p {
-        font-size: 16px;
-        margin-bottom: 25px;
-    }
-
-    .remote-support a {
-        display: inline-block;
-        padding: 12px 25px;
-        background-color: #28a745;
-        color: white;
-        font-weight: bold;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: background-color 0.3s;
-    }
-
-    .remote-support a:hover {
-        background-color: #1e7e34;
-    }
-
-    /* ===== PRODUCTOS ===== */
-    .products {
-        max-width: 1000px;
-        margin: 40px auto;
+    /* ====== PRODUCTOS DEBAJO DEL CARRUSEL ====== */
+    .products-section {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        padding: 0 10px;
+        margin-top: 40px;
     }
 
     .product {
         background-color: #ffffff;
         border-radius: 12px;
         padding: 20px;
-        width: 250px;
+        width: 240px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         text-align: left;
     }
 
     .product h3 {
-        font-size: 18px;
-        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
 
     .product p {
@@ -246,15 +231,19 @@
     }
 
     .buy-button {
-        display: inline-block;
-        margin-top: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 5px;
         padding: 8px 12px;
         background-color: #28a745;
         color: white;
         border-radius: 6px;
-        font-weight: bold;
         text-decoration: none;
         font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
     }
 
     .buy-button:hover {
@@ -263,122 +252,226 @@
 
     .small-note {
         font-size: 11px;
-        margin-left: 4px;
+        color: #fff;
+        background-color: #1b5e20;
+        padding: 1px 4px;
+        border-radius: 3px;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-        font-size: 14px;
-        color: #555;
+    /* ====== SOLICITAR SOPORTE REMOTO ====== */
+    .support-section {
+        margin-top: 60px;
+        padding: 50px 20px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0056b3, #00aaff); /* DEGRADADO */
+        color: white;
         text-align: center;
-        padding: 20px;
-        line-height: 1.5;
-        background-color: #f0f2f5;
-        margin-top: 50px;
+        position: relative;
+        overflow: hidden;
     }
 
-    footer a {
-        color: #007bff;
+    .support-section h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .support-section p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .support-section .support-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 25px;
+        background-color: #ff4b2b;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
         text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s;
     }
 
-    footer a:hover {
-        text-decoration: underline;
+    .support-section .support-button:hover {
+        background-color: #ff416c;
     }
 
 </style>
 </head>
 <body>
 
-<!-- CINTA SUPERIOR -->
+<!-- CINTA SUPERIOR ORIGINAL -->
 <div class="corporate-ticker">
   <div class="ticker-text">
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
-    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional.
+    <img src="solzze-logo.png" alt="Solzze Logo">
+    <img src="rs-logo.png" alt="RS Logo">
+    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota utilizada para brindar soporte técnico profesional, seguro y confiable a nuestros clientes. Descargue las versiones más recientes y certificadas para Windows y macOS.
   </div>
 </div>
 
-<!-- GIF FLOTANTE -->
+<!-- GIF -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<!-- LOGO Y RESPALDO -->
-<div class="logo-container">
-    <p class="backup-text">Respaldado por:</p>
-    <img src="logo.png" alt="RobertSoftware" class="logo">
-    <h1>RustDesk</h1>
-    <p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
+<p class="backup-text">Respaldado por:</p>
+<img src="logo.png" alt="RobertSoftware" class="logo">
 
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
-       class="download-link" id="btnWin">
-       <img src="windows.svg" alt="Windows"> Descargar para Windows
-    </a>
+<h1>RustDesk</h1>
+<p class="message">
+    Seleccione su sistema operativo para iniciar la descarga de RustDesk.
+</p>
 
-    <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
-       class="download-link" id="btnMac">
-       <img src="macos.svg" alt="macOS"> Descargar para macOS
-    </a>
-</div>
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+   class="download-link" id="btnWin">
+   <img src="windows.svg" alt="Windows"> Descargar para Windows
+</a>
+
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+   class="download-link" id="btnMac">
+   <img src="macos.svg" alt="macOS"> Descargar para macOS
+</a>
 
 <!-- CARRUSEL -->
-<div class="carousel-wrapper">
-    <div class="carousel">
-        <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
-        <div class="carousel-track">
-            <img src="1.jpg" alt="RustDesk 1">
-            <img src="2.png" alt="RustDesk 2">
-            <img src="3.png" alt="RustDesk 3">
-            <img src="4.png" alt="RustDesk 4">
-        </div>
-        <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
+<div class="carousel">
+    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
+    <div class="carousel-track">
+        <img src="1.jpg" alt="RustDesk 1">
+        <img src="2.png" alt="RustDesk 2">
+        <img src="3.png" alt="RustDesk 3">
+        <img src="4.png" alt="RustDesk 4">
     </div>
+    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- SOPORTE REMOTO -->
-<div class="remote-support">
-    <h2>Soporte Remoto Profesional</h2>
-    <p>Conéctese con nuestro equipo de soporte técnico de manera segura y confiable.</p>
-    <a href="https://wa.me/51945482880" target="_blank">Solicitar Soporte Remoto</a>
-</div>
-
-<!-- PRODUCTOS -->
-<div class="products">
+<!-- PRODUCTOS DEBAJO DEL CARRUSEL -->
+<div class="products-section">
     <div class="product">
         <h3>Software Ofimático</h3>
         <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
         <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
     </div>
     <div class="product">
         <h3>Antivirus</h3>
         <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
         <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
     </div>
     <div class="product">
         <h3>Gestión de PDF</h3>
         <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
         <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
-    </div>
-    <div class="product">
-        <h3>Software de Diseño y Creatividad</h3>
-        <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
-        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
     </div>
     <div class="product">
         <h3>Edición de Video</h3>
         <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
         <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
-    </div>
-    <div class="product">
-        <h3>Producción Musical</h3>
-        <p>Software para composición, mezcla y edición de audio profesional.</p>
-        <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">WhatsApp</span></a>
+        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+            Comprar ahora <span class="small-note">WhatsApp</span>
+        </a>
     </div>
 </div>
+
+<!-- SECCIÓN SOLICITAR SOPORTE REMOTO -->
+<div class="support-section">
+    <h2>Solicitar Soporte Remoto</h2>
+    <p>Reciba asistencia profesional en sus sistemas y equipos de manera rápida y segura. Haga clic en el botón para conectarse con nuestro equipo de soporte remoto.</p>
+    <a href="https://wa.me/51945482880" target="_blank" class="support-button">
+        Conectar Ahora
+    </a>
+</div>
+
+<script>
+    const gif = document.getElementById('downloadGif');
+
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
+    }
+
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
+    });
+
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
+    });
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-arrow-left');
+    const nextButton = document.querySelector('.carousel-arrow-right');
+    let index = 0;
+    const total = slides.length;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        index = (index + 1) % total;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        index = (index - 1 + total) % total;
+        updateCarousel();
+    });
+
+    setInterval(() => {
+        index = (index + 1) % total;
+        updateCarousel();
+    }, 5000);
+
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    track.addEventListener('touchmove', e => {
+        if(!isDragging) return;
+        const moveX = e.touches[0].clientX;
+        const diff = startX - moveX;
+        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
+        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
+    });
+
+    track.addEventListener('touchend', () => { isDragging = false; });
+</script>
 
 <footer>
     <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
@@ -388,48 +481,6 @@
         o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
     </p>
 </footer>
-
-<script>
-    // DESCARGAS CON GIF
-    const gif = document.getElementById('downloadGif');
-
-    function handleDownload(url) {
-        gif.style.display = 'block';
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = url.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(()=>{gif.style.display='none';}, 3000);
-    }
-
-    document.getElementById('btnWin').addEventListener('click', e=>{
-        e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe");
-    });
-
-    document.getElementById('btnMac').addEventListener('click', e=>{
-        e.preventDefault();
-        handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg");
-    });
-
-    // CARRUSEL
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-arrow-left');
-    const nextButton = document.querySelector('.carousel-arrow-right');
-    let index = 0;
-
-    function updateCarousel() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    nextButton.addEventListener('click', ()=>{ index = (index+1)%slides.length; updateCarousel(); });
-    prevButton.addEventListener('click', ()=>{ index = (index-1+slides.length)%slides.length; updateCarousel(); });
-
-    setInterval(()=>{ index = (index+1)%slides.length; updateCarousel(); }, 5000);
-</script>
 
 </body>
 </html>
