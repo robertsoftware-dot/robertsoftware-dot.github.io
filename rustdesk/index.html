@@ -19,7 +19,7 @@
 
     .logo {
         max-width: 180px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .backup-text {
@@ -43,43 +43,26 @@
         color: #333;
     }
 
-    .download-link {
+    /* ====== BOTONES DE DESCARGA CON LUZ ====== */
+    .download-link, .support-button {
+        position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         margin: 10px;
         padding: 12px 25px;
-        background-color: #1a73e8;
+        background-color: #007bff;
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        position: relative;
+        transition: transform 0.2s;
         overflow: hidden;
-    }
-
-    .download-link::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-        transition: all 0.3s ease;
-    }
-
-    .download-link:hover::after {
-        left: 100%;
-    }
-
-    .download-link:hover {
-        transform: translateY(-2px);
+        z-index: 1;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     .download-link img {
@@ -87,48 +70,24 @@
         height: 24px;
     }
 
-    .arrow-top {
-        position: fixed;
-        top: 50px;
-        right: 60px;
-        width: 60px;
-        z-index: 1000;
+    .download-link:hover, .support-button:hover {
+        transform: translateY(-2px);
+    }
+
+    /* LUZ QUE SIGUE EL CURSOR */
+    .download-link::before, .support-button::before {
+        content: '';
+        position: absolute;
+        top: var(--y, 50%);
+        left: var(--x, 50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+        transform: translate(-50%, -50%);
+        transition: 0.1s;
         pointer-events: none;
-        display: none;
-        animation: float 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-8px); }
-    }
-
-    footer {
-        font-size: 14px;
-        color: #555;
-        text-align: center;
-        background-color: #f0f2f5;
-        padding: 10px 20px;
-        line-height: 1.4;
-        max-width: 800px;
-        margin: 40px auto 0;
-    }
-
-    footer a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-        color: #004080;
-    }
-
-    @media (max-width: 600px) {
-        .download-link {
-            width: 80%;
-            font-size: 18px;
-        }
+        border-radius: 50%;
+        z-index: 0;
     }
 
     /* ====== CINTA SUPERIOR ORIGINAL ====== */
@@ -137,7 +96,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #a8c4e6; 
+        background-color: #a8c4e6;
         overflow: hidden;
         height: 40px;
         z-index: 9999;
@@ -170,11 +129,22 @@
         100% { transform: translateX(-100%); }
     }
 
+    /* ====== MAIN CONTENT ====== */
+    .main-content {
+        max-width: 900px;
+        margin: 60px auto 40px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
     /* ====== CARRUSEL ====== */
     .carousel {
         position: relative;
-        max-width: 700px;
-        margin: 20px auto;
+        width: 100%;
+        max-width: 800px;
         overflow: hidden;
         border-radius: 12px;
         border: 1px solid rgba(0,0,0,0.05);
@@ -217,98 +187,79 @@
     .carousel-arrow-left { left: 10px; }
     .carousel-arrow-right { right: 10px; }
 
-    /* ====== SECCION SOPORTE REMOTO CON FONDO ANIMADO SUAVE ====== */
+    /* ====== SECCION SOLICITAR SOPORTE REMOTO ====== */
     .support-section {
-        margin: 30px auto;
-        padding: 80px 20px;
-        color: #fff;
+        width: 100%;
+        max-width: 800px;
         border-radius: 12px;
-        background: linear-gradient(270deg, #4a90e2, #50e3c2, #2d9cdb, #3bb1b1);
-        background-size: 1200% 1200%;
-        animation: gradientBG 6s linear infinite;
-        text-align: center;
-        position: relative;
         overflow: hidden;
+        position: relative;
+        color: white;
+        padding: 50px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
-    @keyframes gradientBG {
+    /* Fondo animado tipo ola inclinada */
+    .support-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #5e72e4, #2b6cb0, #5e72e4);
+        background-size: 400% 400%;
+        animation: waveBG 6s ease-in-out infinite;
+        z-index: -1;
+        opacity: 0.85;
+    }
+
+    @keyframes waveBG {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
 
     .support-section h2 {
-        font-size: 32px;
+        font-size: 28px;
         margin-bottom: 20px;
-        font-weight: bold;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        text-shadow: 0 0 15px rgba(255,255,255,0.4);
     }
 
     .support-section p {
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 30px;
+        max-width: 700px;
+        text-align: center;
     }
 
-    .support-section .support-button {
-        display: inline-block;
-        padding: 16px 40px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #1a73e8;
-        border-radius: 10px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .support-section .support-button::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
+    /* ====== PRODUCTOS DEBAJO DEL CARRUSEL ====== */
+    .products-column {
         width: 100%;
-        height: 100%;
-        background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-        transition: all 0.3s ease;
-    }
-
-    .support-section .support-button:hover::after {
-        left: 100%;
-    }
-
-    .support-section .support-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    /* ====== PRODUCTOS ====== */
-    .products-grid {
+        max-width: 900px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
-        margin: 40px 0;
-        padding: 0 20px;
+        margin-top: 20px;
     }
 
     .product {
-        background-color: #ffffff;
+        background-color: #fff;
         border-radius: 12px;
-        padding: 20px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         text-align: left;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
     .product h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
 
     .product p {
         font-size: 14px;
-        margin: 5px 0;
+        margin: 3px 0;
     }
 
     .buy-button {
@@ -316,8 +267,8 @@
         align-items: center;
         justify-content: center;
         gap: 6px;
-        margin-top: 10px;
-        padding: 10px 16px;
+        margin-top: 5px;
+        padding: 8px 12px;
         background-color: #28a745;
         color: white;
         border-radius: 6px;
@@ -325,6 +276,8 @@
         font-size: 14px;
         font-weight: bold;
         transition: background-color 0.2s;
+        position: relative;
+        overflow: hidden;
     }
 
     .buy-button:hover {
@@ -338,6 +291,44 @@
         padding: 1px 4px;
         border-radius: 3px;
     }
+
+    footer {
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        background-color: #f0f2f5;
+        padding: 10px 20px;
+        line-height: 1.4;
+        max-width: 800px;
+        margin: 40px auto 0;
+    }
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+        color: #004080;
+    }
+
+    /* ====== GIF ====== */
+    .arrow-top {
+        position: fixed;
+        top: 50px;
+        right: 60px;
+        width: 60px;
+        z-index: 1000;
+        pointer-events: none;
+        display: none;
+        animation: float 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
+    }
 </style>
 </head>
 <body>
@@ -348,7 +339,7 @@
     <img src="rustdesk-logo.png" alt="RustDesk Logo">
     <img src="solzze-logo.png" alt="Solzze Logo">
     <img src="rs-logo.png" alt="RS Logo">
-    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota utilizada para brindar soporte técnico profesional, seguro y confiable a nuestros clientes. Descargue las versiones más recientes y certificadas para Windows y macOS.
+    Distribución verificada de RustDesk por Robert Software – Herramienta de conexión remota profesional.
   </div>
 </div>
 
@@ -359,9 +350,7 @@
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
 <h1>RustDesk</h1>
-<p class="message">
-    Seleccione su sistema operativo para iniciar la descarga de RustDesk.
-</p>
+<p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
 
 <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
    class="download-link" id="btnWin">
@@ -373,8 +362,10 @@
    <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
-<!-- CARRUSEL -->
-<div class="carousel-wrapper">
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- CARRUSEL -->
     <div class="carousel">
         <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
         <div class="carousel-track">
@@ -385,57 +376,58 @@
         </div>
         <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
     </div>
-</div>
 
-<!-- SECCION SOPORTE REMOTO -->
-<div class="support-section">
-    <h2>Solicitar Soporte Remoto</h2>
-    <p>Conéctese con nuestros técnicos de manera segura y profesional para resolver cualquier inconveniente en su equipo.</p>
-    <a href="https://wa.me/51945482880" target="_blank" class="support-button">Conectar Ahora</a>
-</div>
+    <!-- SECCION SOLICITAR SOPORTE REMOTO -->
+    <div class="support-section">
+        <h2>Solicitar Soporte Remoto</h2>
+        <p>Conéctese con nuestros técnicos de manera segura y confiable. Obtenga ayuda profesional para sus sistemas y equipos sin salir de su oficina.</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="support-button">Conectar Ahora</a>
+    </div>
 
-<!-- PRODUCTOS -->
-<div class="products-grid">
-    <div class="product">
-        <h3>Software Ofimático</h3>
-        <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
-        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
+    <!-- PRODUCTOS DEBAJO -->
+    <div class="products-column">
+        <div class="product">
+            <h3>Software Ofimático</h3>
+            <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
+            <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
+        <div class="product">
+            <h3>Antivirus</h3>
+            <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
+            <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
+        <div class="product">
+            <h3>Gestión de PDF</h3>
+            <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
+            <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
+        <div class="product">
+            <h3>Software de Diseño y Creatividad</h3>
+            <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
+            <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
+        <div class="product">
+            <h3>Edición de Video</h3>
+            <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
+            <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
+                Comprar ahora <span class="small-note">WhatsApp</span>
+            </a>
+        </div>
     </div>
-    <div class="product">
-        <h3>Antivirus</h3>
-        <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
-        <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Gestión de PDF</h3>
-        <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
-        <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Software de Diseño y Creatividad</h3>
-        <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
-        <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
-    <div class="product">
-        <h3>Edición de Video</h3>
-        <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
-        <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
-        <a href="https://wa.me/51945482880" target="_blank" class="buy-button">
-            Comprar ahora <span class="small-note">WhatsApp</span>
-        </a>
-    </div>
+
 </div>
 
 <script>
@@ -474,6 +466,7 @@
         );
     });
 
+    /* CARRUSEL */
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-arrow-left');
@@ -511,26 +504,34 @@
     track.addEventListener('touchmove', e => {
         if(!isDragging) return;
         const moveX = e.touches[0].clientX;
-        const diff = moveX - startX;
-        track.style.transform = `translateX(${-index * 100 + diff/track.offsetWidth*100}%)`;
+        const diff = startX - moveX;
+        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
+        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
     });
 
-    track.addEventListener('touchend', e => {
-        isDragging = false;
-        const moveX = e.changedTouches[0].clientX;
-        const diff = moveX - startX;
-        if(diff > 50) index = (index - 1 + total) % total;
-        else if(diff < -50) index = (index + 1) % total;
-        updateCarousel();
+    track.addEventListener('touchend', () => isDragging = false);
+
+    /* LUZ QUE SIGUE EL CURSOR EN BOTONES */
+    const buttons = document.querySelectorAll('.download-link, .support-button');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            btn.style.setProperty('--x', `${x}px`);
+            btn.style.setProperty('--y', `${y}px`);
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.setProperty('--x', `50%`);
+            btn.style.setProperty('--y', `50%`);
+        });
     });
 </script>
 
 <footer>
-    <p>
-        WhatsApp: <a href="https://wa.me/51945482880">945482880</a> 
-        | Instagram: <a href="https://www.instagram.com/robert.softwar" target="_blank">@robert.softwar</a> 
-        | Web: <a href="https://www.robert-software.com" target="_blank">www.robert-software.com</a>
-    </p>
+    © 2025 Robert Software. Contacto: <a href="https://wa.me/51945482880">WhatsApp</a> | Instagram: <a href="https://www.instagram.com/robert.softwar">@robert.softwar</a> | <a href="https://www.robert-software.com">Página Web</a>
 </footer>
 
 </body>
