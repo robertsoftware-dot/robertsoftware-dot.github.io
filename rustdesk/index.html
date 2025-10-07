@@ -353,56 +353,44 @@
         height: 35px;
     }
 
-    /* ==== SECCIÓN INFORMATIVA DE RUSTDESK ==== */
-    .info-section {
+    /* NUEVA SECCIÓN DE INFORMACIÓN */
+    .rustdesk-info {
+        background-color: #1f2a45;
+        color: #e6eefb;
         max-width: 900px;
-        margin: 40px auto 60px;
-        background-color: #f1f4f8;
-        padding: 30px 25px;
+        margin: 40px auto;
+        padding: 30px 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         text-align: left;
     }
 
-    .info-section h2 {
-        color: #007bff;
+    .rustdesk-info h2 {
+        color: #00aaff;
         font-size: 24px;
         margin-bottom: 15px;
     }
 
-    .info-section p {
-        color: #333;
-        font-size: 15px;
+    .rustdesk-info p {
+        font-size: 16px;
         line-height: 1.6;
         margin-bottom: 15px;
     }
 
-    .info-btn {
+    .rustdesk-info .info-btn {
         display: inline-block;
-        padding: 12px 25px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
-        font-weight: bold;
+        padding: 12px 25px;
         border-radius: 8px;
+        font-weight: bold;
         transition: background-color 0.3s, transform 0.2s;
     }
 
-    .info-btn:hover {
+    .rustdesk-info .info-btn:hover {
         background-color: #0056b3;
         transform: translateY(-2px);
-    }
-
-    @media (max-width: 600px) {
-        .info-section {
-            padding: 20px 15px;
-        }
-        .info-section h2 {
-            font-size: 20px;
-        }
-        .info-section p {
-            font-size: 14px;
-        }
     }
 </style>
 </head>
@@ -448,20 +436,19 @@
     <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
-<!-- ==== SECCIÓN INFORMATIVA DE RUSTDESK ==== -->
-<div class="info-section">
+<!-- ==== NUEVA SECCIÓN DE INFORMACIÓN SOBRE RUSTDESK ==== -->
+<div class="rustdesk-info">
     <h2>Sobre RustDesk</h2>
     <p>
-        RustDesk es una herramienta de conexión remota profesional, segura y confiable, diseñada para 
-        brindar soporte técnico eficiente a computadoras y dispositivos en cualquier lugar. 
-        Con RustDesk, puede acceder de manera remota a sus sistemas, transferir archivos de forma rápida 
-        y administrar múltiples equipos de manera simultánea, todo con máxima seguridad y privacidad.
+        RustDesk es una solución de escritorio remoto moderna y segura que permite la conexión entre equipos de manera sencilla y confiable. Con RustDesk, los técnicos pueden acceder de forma remota a computadoras de clientes para brindar soporte, instalar aplicaciones o resolver incidencias sin comprometer la privacidad ni la seguridad de los datos.
     </p>
     <p>
-        Nuestro servicio garantiza la autenticidad de las descargas y la compatibilidad con Windows y macOS, 
-        asegurando que siempre cuente con la versión más reciente y certificada de RustDesk.
+        Esta herramienta es totalmente profesional, compatible con Windows, macOS, Linux, iOS y Android. RustDesk ofrece funcionalidades avanzadas como transferencia de archivos, chat seguro, control completo del escritorio remoto y actualizaciones automáticas para garantizar siempre el mejor rendimiento y seguridad.
     </p>
-    <a href="https://rustdesk.com" target="_blank" class="info-btn">Más información</a>
+    <p>
+        Robert Software distribuye versiones certificadas y actualizadas de RustDesk, asegurando que los clientes reciban un producto confiable y listo para su uso inmediato. Nuestro soporte remoto garantiza asistencia técnica rápida y eficaz, adaptándose a las necesidades de cada usuario.
+    </p>
+    <a href="https://github.com/rustdesk/rustdesk" target="_blank" class="info-btn">Más información</a>
 </div>
 
 <!-- ==== SECCIÓN DE PRODUCTOS ==== -->
@@ -521,47 +508,110 @@
             <img src="whatsapp-icon.png" alt=""> Consultar
         </a>
     </div>
+
+    <div class="product-card">
+        <h3>Música y Producción</h3>
+        <p>Grabación y edición de audio profesional.</p>
+        <p class="price">- S/. 20 (Perú) / CLP 9.500 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Otros Programas Especializados</h3>
+        <p>La mayoría de productos profesionales del mercado.</p>
+        <p class="price">- Consulte por el programa o licencia que busca</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
 </div>
 
 <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float">
     <img src="whatsapp-icon.png" alt="WhatsApp">
 </a>
 
-<footer>
-    Robert Software - Dirección: San Isidro, Lima, Perú | RUC: 10731171705 | Teléfono: 945482880<br>
-    Redes sociales: <a href="https://www.instagram.com/robert.softwar" target="_blank">@robert.softwar</a> | <a href="https://www.facebook.com/RobertSoftware" target="_blank">Facebook</a> | <a href="https://www.robert-software.com" target="_blank">Página Web</a>
-</footer>
-
 <script>
-    // Carrusel
+    const gif = document.getElementById('downloadGif');
+
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
+    }
+
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
+    });
+
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
+    });
+
+    document.querySelectorAll('.download-link').forEach(link => {
+        link.addEventListener('mousemove', e => {
+            const rect = e.target.getBoundingClientRect();
+            link.style.setProperty('--x', e.clientX - rect.left + 'px');
+            link.style.setProperty('--y', e.clientY - rect.top + 'px');
+            link.classList.add('active');
+        });
+        link.addEventListener('mouseleave', () => {
+            link.classList.remove('active');
+        });
+    });
+
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
-    const nextButton = document.querySelector('.carousel-arrow-right');
-    const prevButton = document.querySelector('.carousel-arrow-left');
-    let currentIndex = 0;
+    const leftArrow = document.querySelector('.carousel-arrow-left');
+    const rightArrow = document.querySelector('.carousel-arrow-right');
+    let index = 0;
 
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    function updateCarousel() {
+        const width = track.clientWidth;
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    leftArrow.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateCarousel();
     });
 
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    rightArrow.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        updateCarousel();
     });
 
-    // Botón de descarga animación
-    document.querySelectorAll('.download-link').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-            const rect = btn.getBoundingClientRect();
-            btn.style.setProperty('--x', e.clientX - rect.left + 'px');
-            btn.style.setProperty('--y', e.clientY - rect.top + 'px');
-        });
-        btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
-        btn.addEventListener('mousedown', () => btn.classList.add('active'));
-        btn.addEventListener('mouseup', () => btn.classList.remove('active'));
-    });
+    window.addEventListener('resize', updateCarousel);
 </script>
+
+<footer>
+    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
+        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
+    </p>
+</footer>
 
 </body>
 </html>
