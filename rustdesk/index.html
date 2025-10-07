@@ -43,7 +43,6 @@
         color: #333;
     }
 
-    /* ===== BOTONES DE DESCARGA CON LUZ ===== */
     .download-link {
         position: relative;
         display: inline-flex;
@@ -59,12 +58,13 @@
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        overflow: hidden;
+        transition: background-color 0.3s, transform 0.2s;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.2s;
+        overflow: hidden;
     }
 
     .download-link:hover {
+        background-color: #0056b3;
         transform: translateY(-2px);
     }
 
@@ -73,28 +73,23 @@
         height: 24px;
     }
 
-    /* Efecto de luz */
+    /* ==== BRILLO QUE SIGUE EL CURSOR ==== */
     .download-link::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle 200px, rgba(255,255,255,0.6) 0%, transparent 80%);
-        transform: translate(-50%, -50%) rotate(45deg);
-        opacity: 0;
+        top: var(--y, 50%);
+        left: var(--x, 50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 80%);
+        transform: translate(-50%, -50%);
         pointer-events: none;
+        opacity: 0;
         transition: opacity 0.3s;
     }
 
-    .download-link:hover::after {
-        opacity: 1;
-    }
-
-    /* Seguimiento del puntero */
     .download-link.active::after {
-        transition: none;
+        opacity: 1;
     }
 
     .arrow-top {
@@ -309,24 +304,6 @@
         );
     });
 
-    // ===== LUZ SIGUE PUNTERO =====
-    const buttons = document.querySelectorAll('.download-link');
-
-    buttons.forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            btn.style.setProperty('--x', x + 'px');
-            btn.style.setProperty('--y', y + 'px');
-            btn.classList.add('active');
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.classList.remove('active');
-        });
-    });
-
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-arrow-left');
@@ -370,6 +347,22 @@
     });
 
     track.addEventListener('touchend', () => { isDragging = false; });
+
+    // ==== BRILLO QUE SIGUE EL CURSOR ====
+    const buttons = document.querySelectorAll('.download-link');
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            btn.style.setProperty('--x', x + 'px');
+            btn.style.setProperty('--y', y + 'px');
+            btn.classList.add('active');
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.classList.remove('active');
+        });
+    });
 
 </script>
 
