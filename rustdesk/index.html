@@ -6,74 +6,240 @@
 <title>Descargar RustDesk - RobertSoftware</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
-/* ===== RESET ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #e6eefb; color: #333; min-height: 100vh; }
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f2f5;
+        color: #222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px; /* espacio ticker */
+    }
 
-/* ===== CINTA ===== */
-.corporate-ticker {
-    position: fixed; top: 0; left: 0; width: 100%; height: 40px; background-color: #a8c4e6;
-    overflow: hidden; display: flex; align-items: center; z-index: 9999;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding-left: 100%;
-}
-.ticker-text {
-    display: inline-flex; white-space: nowrap; color: #fff; font-weight: 600;
-    font-size: 16px; animation: scrollTicker 20s linear infinite; gap: 10px;
-}
-.ticker-text img { height: 28px; }
-@keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+    /* ===== CINTA ===== */
+    .corporate-ticker {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: #1f2937;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        z-index: 9999;
+    }
 
-/* ===== HEADER ===== */
-header {
-    text-align: center; padding: 100px 20px 40px 20px; position: relative;
-}
-header img.logo { max-width: 180px; margin-bottom: 15px; }
-header .backup-text { font-size: 14px; color: #555; margin-bottom: 5px; }
-header h1 { font-size: 36px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; text-shadow: 1px 1px 2px rgba(0,0,0,0.05);}
-header .message { font-size: 16px; margin-bottom: 25px; }
+    .ticker-text {
+        display: flex;
+        white-space: nowrap;
+        color: #f9fafb;
+        font-weight: 600;
+        font-size: 15px;
+        padding-left: 100%;
+        animation: scrollTicker 20s linear infinite;
+        gap: 10px;
+        align-items: center;
+    }
 
-/* ===== BOTONES DESCARGA ===== */
-.download-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
-.download-link {
-    display: flex; align-items: center; gap: 8px; padding: 12px 25px; background-color: #007bff;
-    color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, background-color 0.3s;
-}
-.download-link:hover { background-color: #0056b3; transform: translateY(-2px); }
-.download-link img { width: 24px; height: 24px; }
+    .ticker-text img { height: 28px; }
 
-/* ===== GIF ===== */
-.arrow-top { position: fixed; top: 60px; right: 20px; width: 60px; display: none; animation: float 2s ease-in-out infinite alternate; z-index: 1000; }
-@keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+    @keyframes scrollTicker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
 
-/* ===== MAIN ===== */
-.main-content { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; padding: 0 20px 50px 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
-.products-column { flex: 1 1 250px; display: flex; flex-direction: column; gap: 20px; }
-.product { background-color: #f4f7fc; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: left; }
-.product h3 { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
-.product p { font-size: 14px; margin: 3px 0; }
-.buy-button { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 8px 12px; background-color: #28a745; color: white; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold; transition: background-color 0.2s; }
-.buy-button:hover { background-color: #1e7e34; }
-.small-note { font-size: 11px; color: #fff; background-color: #1b5e20; padding: 1px 4px; border-radius: 3px; }
+    /* ===== HEADER ===== */
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-/* ===== CARRUSEL ===== */
-.carousel-wrapper { flex: 2 1 600px; max-width: 600px; margin: 0 auto; }
-.carousel { position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
-.carousel-track { display: flex; transition: transform 0.5s ease; }
-.carousel-track img { width: 100%; flex-shrink: 0; border-radius: 12px; user-select: none; pointer-events: none; }
-.carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.3); color: white; border: none; font-size: 24px; cursor: pointer; padding: 8px 12px; border-radius: 50%; z-index: 10; transition: background-color 0.2s; }
-.carousel-arrow:hover { background-color: rgba(0,0,0,0.6); }
-.carousel-arrow-left { left: 10px; }
-.carousel-arrow-right { right: 10px; }
+    .logo { max-width: 160px; margin-bottom: 10px; }
 
-/* ===== FOOTER ===== */
-footer { font-size: 14px; color: #555; text-align: center; padding: 20px; background-color: #e6eefb; line-height: 1.5; }
-footer a { color: #007bff; text-decoration: none; }
-footer a:hover { text-decoration: underline; color: #004080; }
+    .backup-text { font-size: 13px; color: #555; margin-bottom: 5px; }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) { .main-content { flex-direction: column; align-items: center; } .carousel-wrapper { max-width: 100%; } }
-@media (max-width: 600px) { .download-link { width: 80%; justify-content: center; } }
+    h1 {
+        font-size: 40px;
+        color: #111827;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        font-size: 16px;
+        color: #374151;
+        margin-bottom: 20px;
+    }
+
+    .download-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .download-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 25px;
+        background: #4f46e5;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .download-link img { width: 24px; height: 24px; }
+
+    .download-link:hover {
+        background: #4338ca;
+        transform: translateY(-3px);
+    }
+
+    /* ===== GIF ===== */
+    .arrow-top {
+        position: fixed;
+        top: 60px;
+        right: 40px;
+        width: 60px;
+        display: none;
+        animation: float 2s ease-in-out infinite alternate;
+        z-index: 1000;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+
+    /* ===== MAIN ===== */
+    .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+
+    .products-column {
+        flex: 1 1 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .product {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s;
+    }
+
+    .product:hover { transform: translateY(-3px); }
+
+    .product h3 { font-size: 17px; margin-bottom: 5px; color: #1f2937; }
+    .product p { font-size: 14px; margin: 3px 0; color: #4b5563; }
+
+    .buy-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+        padding: 10px 14px;
+        background: #10b981;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background 0.2s;
+    }
+
+    .buy-button:hover { background: #059669; }
+
+    .small-note {
+        font-size: 11px;
+        color: #fff;
+        background: #047857;
+        padding: 1px 5px;
+        border-radius: 3px;
+    }
+
+    /* ===== CARRUSEL ===== */
+    .carousel-wrapper {
+        flex: 2 1 600px;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-track img {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 15px;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(31,41,55,0.5);
+        color: #fff;
+        border: none;
+        font-size: 26px;
+        padding: 10px 14px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.2s;
+    }
+
+    .carousel-arrow:hover { background: rgba(31,41,55,0.8); }
+
+    .carousel-arrow-left { left: 10px; }
+    .carousel-arrow-right { right: 10px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+        text-align: center;
+        padding: 25px 20px;
+        color: #374151;
+        font-size: 14px;
+        margin-top: 50px;
+    }
+
+    footer a { color: #4f46e5; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width:900px){
+        .main-content { flex-direction: column; align-items: center; }
+        .carousel-wrapper { max-width: 100%; }
+    }
 
 </style>
 </head>
@@ -92,12 +258,12 @@ footer a:hover { text-decoration: underline; color: #004080; }
 <!-- GIF -->
 <img src="flecha-arriba.gif" alt="" class="arrow-top" id="downloadGif">
 
-<!-- HEADER -->
 <header>
     <p class="backup-text">Respaldado por:</p>
     <img src="logo.png" alt="RobertSoftware" class="logo">
     <h1>RustDesk</h1>
     <p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
+
     <div class="download-buttons">
         <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
            class="download-link" id="btnWin">
@@ -110,7 +276,7 @@ footer a:hover { text-decoration: underline; color: #004080; }
     </div>
 </header>
 
-<!-- MAIN CONTENT -->
+<!-- CONTENIDO PRINCIPAL -->
 <div class="main-content">
 
     <!-- COLUMNA IZQUIERDA -->
@@ -135,7 +301,7 @@ footer a:hover { text-decoration: underline; color: #004080; }
         </div>
     </div>
 
-    <!-- CARRUSEL CENTRAL -->
+    <!-- CARRUSEL -->
     <div class="carousel-wrapper">
         <div class="carousel">
             <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
@@ -184,7 +350,6 @@ footer a:hover { text-decoration: underline; color: #004080; }
 
 </div>
 
-<!-- FOOTER -->
 <footer>
     <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
     <p>© 2025 Robert Software. Todos los derechos reservados.</p>
@@ -194,51 +359,65 @@ footer a:hover { text-decoration: underline; color: #004080; }
     </p>
 </footer>
 
-<!-- SCRIPT -->
 <script>
-const gif = document.getElementById('downloadGif');
+    const gif = document.getElementById('downloadGif');
 
-function handleDownload(url, counterUrl) {
-    fetch(counterUrl)
-        .then(res => res.json())
-        .then(data => {
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = url.split('/').pop();
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        })
-        .catch(err => console.error(err));
-}
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                gif.style.display = 'none';
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
+    }
 
-document.getElementById('btnWin').addEventListener('click', e => {
-    e.preventDefault(); gif.style.display='block';
-    handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe","https://api.counterapi.dev/v2/rs/Win/up");
-});
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
+    });
 
-document.getElementById('btnMac').addEventListener('click', e => {
-    e.preventDefault(); gif.style.display='block';
-    handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg","https://api.counterapi.dev/v2/rs/Mac/up");
-});
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
+    });
 
-// Carrusel
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const prevButton = document.querySelector('.carousel-arrow-left');
-const nextButton = document.querySelector('.carousel-arrow-right');
-let index = 0;
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-arrow-left');
+    const nextButton = document.querySelector('.carousel-arrow-right');
+    let index = 0;
+    const total = slides.length;
 
-function updateCarousel(){ track.style.transform = `translateX(-${index * 100}%)`; }
+    function updateCarousel() { track.style.transform = `translateX(-${index * 100}%)`; }
 
-nextButton.addEventListener('click',()=>{ index=(index+1)%slides.length; updateCarousel(); });
-prevButton.addEventListener('click',()=>{ index=(index-1+slides.length)%slides.length; updateCarousel(); });
-setInterval(()=>{ index=(index+1)%slides.length; updateCarousel(); },5000);
+    nextButton.addEventListener('click', () => { index = (index + 1) % total; updateCarousel(); });
+    prevButton.addEventListener('click', () => { index = (index - 1 + total) % total; updateCarousel(); });
 
-let startX=0, isDragging=false;
-track.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; isDragging=true; });
-track.addEventListener('touchmove',e=>{ if(!isDragging) return; const diff=startX-e.touches[0].clientX; if(diff>50){ index=(index+1)%slides.length; updateCarousel(); isDragging=false; } else if(diff<-50){ index=(index-1+slides.length)%slides.length; updateCarousel(); isDragging=false; } });
-track.addEventListener('touchend',()=>{ isDragging=false; });
+    setInterval(() => { index = (index + 1) % total; updateCarousel(); }, 5000);
+
+    let startX = 0, isDragging = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
+    track.addEventListener('touchmove', e => {
+        if(!isDragging) return;
+        const diff = startX - e.touches[0].clientX;
+        if(diff > 50){ index = (index + 1) % total; updateCarousel(); isDragging=false; }
+        else if(diff < -50){ index = (index - 1 + total) % total; updateCarousel(); isDragging=false; }
+    });
+    track.addEventListener('touchend', () => { isDragging = false; });
 </script>
 
 </body>
