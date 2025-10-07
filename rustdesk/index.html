@@ -6,205 +6,351 @@
 <title>Descargar RustDesk - RobertSoftware</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e6eefb;
-    color: #333;
-    text-align: center;
-    padding: 40px 20px;
-    margin: 0;
-    position: relative;
-    min-height: 100vh;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e6eefb;
+        color: #333;
+        text-align: center;
+        padding: 40px 20px;
+        margin: 0;
+        position: relative;
+        min-height: 100vh;
+    }
 
-.logo { max-width: 180px; margin-bottom: 20px; }
-.backup-text { font-size: 14px; margin-bottom: 8px; color: #555; }
-h1 { font-size: 36px; margin: 15px 0; font-weight: bold; color: #1a1a1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.05); }
-.message { font-size: 16px; margin-top: 15px; line-height: 1.5; color: #333; }
+    .logo {
+        max-width: 180px;
+        margin-bottom: 20px;
+    }
 
-.download-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 10px;
-    padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
+    .backup-text {
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #555;
+    }
 
-.download-link:hover { background-color: #0056b3; transform: translateY(-2px); }
-.download-link img { width: 24px; height: 24px; }
-.download-link::after {
-    content: '';
-    position: absolute;
-    top: var(--y, 50%);
-    left: var(--x, 50%);
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.0) 70%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.download-link.active::after { opacity: 1; }
+    h1 {
+        font-size: 36px; 
+        margin: 15px 0;
+        font-weight: bold;
+        color: #1a1a1a;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
 
-.arrow-top { position: fixed; top: 50px; right: 60px; width: 60px; z-index: 1000; pointer-events: none; display: none; animation: float 2s ease-in-out infinite alternate; }
-@keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+    .message {
+        font-size: 16px;
+        margin-top: 15px;
+        line-height: 1.5;
+        color: #333;
+    }
 
-footer { font-size: 14px; color: #555; text-align: center; background-color: #e6eefb; padding: 20px; line-height: 1.4; max-width: 900px; margin: 40px auto 0; }
-footer a { color: #007bff; text-decoration: none; }
-footer a:hover { text-decoration: underline; color: #004080; }
+    .download-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
 
-@media (max-width: 600px) {
-    .download-link { width: 80%; font-size: 18px; }
-}
+    .download-link:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
 
-.corporate-ticker {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    background-color: #a8c4e6;
-    overflow: hidden;
-    height: 40px;
-    z-index: 9999;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-}
-.ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    color: #ffffff;
-    font-weight: 600;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    padding-left: 100%;
-    animation: scrollTicker 20s linear infinite;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.ticker-text img { height: 28px; }
-@keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+    .download-link img {
+        width: 24px;
+        height: 24px;
+    }
 
-.carousel {
-    position: relative;
-    max-width: 900px;
-    margin: 30px auto;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.carousel-track { display: flex; transition: transform 0.5s ease; touch-action: pan-x; }
-.carousel-track img { width: 100%; flex-shrink: 0; border-radius: 12px; user-select: none; pointer-events: none; }
-.carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.3); color: white; border: none; font-size: 24px; cursor: pointer; padding: 8px 12px; border-radius: 50%; z-index: 10; transition: background-color 0.2s; }
-.carousel-arrow:hover { background-color: rgba(0,0,0,0.6); }
-.carousel-arrow-left { left: 10px; }
-.carousel-arrow-right { right: 10px; }
+    .download-link::after {
+        content: '';
+        position: absolute;
+        top: var(--y, 50%);
+        left: var(--x, 50%);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.0) 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
 
-.products-section {
-    max-width: 1100px;
-    margin: 50px auto 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    text-align: left;
-}
+    .download-link.active::after {
+        opacity: 1;
+    }
 
-/* ==== NUEVO FONDO Y EFECTO DE BRILLO PARA PRODUCTO ==== */
-.product-card {
-    background: linear-gradient(135deg, #f7f9fc, #e6eefb);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-}
+    .arrow-top {
+        position: fixed;
+        top: 50px;
+        right: 60px;
+        width: 60px;
+        z-index: 1000;
+        pointer-events: none;
+        display: none;
+        animation: float 2s ease-in-out infinite alternate;
+    }
 
-.product-card::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.25);
-    transform: rotate(25deg);
-    pointer-events: none;
-    animation: shineCard 3s linear infinite;
-}
+    @keyframes float {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
+    }
 
-@keyframes shineCard {
-    0% { transform: rotate(25deg) translateY(-100%); }
-    100% { transform: rotate(25deg) translateY(100%); }
-}
+    footer {
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        background-color: #e6eefb;
+        padding: 20px;
+        line-height: 1.4;
+        max-width: 900px;
+        margin: 40px auto 0;
+    }
 
-.product-card h3,
-.product-card p,
-.product-card .price,
-.product-card .whatsapp-btn {
-    position: relative;
-    z-index: 1;
-}
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
 
-.product-card h3 { margin-top: 0; color: #007bff; font-size: 18px; margin-bottom: 10px; }
-.product-card p { margin: 6px 0; font-size: 14px; color: #333; }
-.product-card .price { font-weight: bold; color: #1a1a1a; margin-top: 8px; background: none; padding: 0; }
+    footer a:hover {
+        text-decoration: underline;
+        color: #004080;
+    }
 
-/* Botón WhatsApp */
-.product-card .whatsapp-btn {
-    margin-top: 12px;
-    background-color: #25d366;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    display: inline-block;
-    transition: background-color 0.3s, transform 0.2s;
-}
-.product-card .whatsapp-btn:hover {
-    background-color: #128c4a;
-    transform: translateY(-2px);
-}
-.product-card .whatsapp-btn img { width: 20px; vertical-align: middle; margin-right: 6px; }
+    @media (max-width: 600px) {
+        .download-link {
+            width: 80%;
+            font-size: 18px;
+        }
+    }
 
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-}
-.whatsapp-float:hover { transform: scale(1.1); }
-.whatsapp-float img { width: 35px; height: 35px; }
+    .corporate-ticker {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #a8c4e6;
+        overflow: hidden;
+        height: 40px;
+        z-index: 9999;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
 
+    .ticker-text {
+        display: inline-block;
+        white-space: nowrap;
+        color: #ffffff;
+        font-weight: 600;
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        padding-left: 100%;
+        animation: scrollTicker 20s linear infinite;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ticker-text img {
+        height: 28px;
+    }
+
+    @keyframes scrollTicker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .carousel {
+        position: relative;
+        max-width: 900px;
+        margin: 30px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        touch-action: pan-x;
+    }
+
+    .carousel-track img {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 12px;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.3);
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 50%;
+        z-index: 10;
+        transition: background-color 0.2s;
+    }
+
+    .carousel-arrow:hover {
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .carousel-arrow-left {
+        left: 10px;
+    }
+
+    .carousel-arrow-right {
+        right: 10px;
+    }
+
+    /* ==== SECCIÓN DE PRODUCTOS ==== */
+    .products-section {
+        max-width: 1100px;
+        margin: 50px auto 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        text-align: left;
+    }
+
+    /* Fondo degradado para todo el cuadro del producto */
+    .product-card {
+        background: linear-gradient(135deg, #f7f9fc, #e6eefb);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Brillo animado al pasar el mouse */
+    .product-card::after {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.25);
+        transform: rotate(25deg);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .product-card:hover::after {
+        opacity: 1;
+        animation: shineCard 3s linear infinite;
+    }
+
+    @keyframes shineCard {
+        0% { transform: rotate(25deg) translateY(-100%); }
+        100% { transform: rotate(25deg) translateY(100%); }
+    }
+
+    .product-card h3 {
+        margin-top: 0;
+        color: #007bff;
+        font-size: 18px;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-card p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #333;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Precio sin fondo */
+    .product-card .price {
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-top: 8px;
+        background: none;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-card .whatsapp-btn {
+        margin-top: 12px;
+        background-color: #25d366;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        display: inline-block;
+        transition: background-color 0.3s, transform 0.2s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-card .whatsapp-btn:hover {
+        background-color: #128c4a;
+        transform: translateY(-2px);
+    }
+
+    .product-card .whatsapp-btn img {
+        width: 20px;
+        vertical-align: middle;
+        margin-right: 6px;
+    }
+
+    .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+    }
+
+    .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+    }
 </style>
 </head>
 <body>
@@ -224,90 +370,191 @@ footer a:hover { text-decoration: underline; color: #004080; }
 <img src="logo.png" alt="RobertSoftware" class="logo">
 
 <h1>RustDesk</h1>
-<p class="message">Seleccione su sistema operativo para iniciar la descarga de RustDesk.</p>
+<p class="message">
+    Seleccione su sistema operativo para iniciar la descarga de RustDesk.
+</p>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" class="download-link" id="btnWin">
-  <img src="windows.svg" alt="Windows"> Descargar para Windows
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe" 
+   class="download-link" id="btnWin">
+   <img src="windows.svg" alt="Windows"> Descargar para Windows
 </a>
 
-<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" class="download-link" id="btnMac">
-  <img src="macos.svg" alt="macOS"> Descargar para macOS
+<a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" 
+   class="download-link" id="btnMac">
+   <img src="macos.svg" alt="macOS"> Descargar para macOS
 </a>
 
 <div class="carousel">
-  <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
-  <div class="carousel-track">
-    <img src="1.jpg" alt="RustDesk 1">
-    <img src="2.png" alt="RustDesk 2">
-    <img src="3.png" alt="RustDesk 3">
-    <img src="4.png" alt="RustDesk 4">
-  </div>
-  <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
+    <button class="carousel-arrow carousel-arrow-left">&#10094;</button>
+    <div class="carousel-track">
+        <img src="1.jpg" alt="RustDesk 1">
+        <img src="2.png" alt="RustDesk 2">
+        <img src="3.png" alt="RustDesk 3">
+        <img src="4.png" alt="RustDesk 4">
+    </div>
+    <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
 </div>
 
+<!-- ==== SECCIÓN DE PRODUCTOS ==== -->
 <div class="products-section">
-  <div class="product-card">
-    <h3>Software de Diseño</h3>
-    <p>Herramientas independientes para diseño gráfico y proyectos visuales.</p>
-    <p class="price">- S/. 15 (Perú) / CLP 9.500 (Chile)</p>
-    <p class="price">- Suite de Creatividad (1 año): S/. 195 (Perú) / CLP 69.500 (Chile)</p>
-    <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn"><img src="whatsapp-icon.png" alt=""> Consultar</a>
-  </div>
-  <!-- Repite los demás productos de tu index original con el mismo formato -->
+    <div class="product-card">
+        <h3>Software de Diseño</h3>
+        <p>Herramientas independientes para diseño gráfico y proyectos visuales.</p>
+        <p class="price">- S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <p class="price">- Suite de Creatividad (1 año): S/. 195 (Perú) / CLP 69.500 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Ofimática y Herramientas de Oficina</h3>
+        <p>Aplicaciones para documentos, hojas de cálculo y presentaciones.</p>
+        <p class="price">- Licencia permanente: S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>PDF Profesional</h3>
+        <p>Crear, editar y convertir archivos PDF de manera segura.</p>
+        <p class="price">- Licencia permanente: S/. 15 (Perú) / CLP 9.500 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Antivirus Profesional</h3>
+        <p>Protección completa contra virus y malware por 1 año, actualizaciones automáticas incluidas.</p>
+        <p class="price">- S/. 35 (Perú) / CLP 15.000 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Suite de Ingeniería / CAD Profesional</h3>
+        <p>Modelado 3D y diseño técnico para ingeniería y arquitectura.</p>
+        <p class="price">- 1 año: S/. 65 (Perú) / CLP 15.500 (Chile)</p>
+        <p class="price">- 2 años: S/. 85 (Perú) / CLP 25.900 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Edición de Video</h3>
+        <p>Software para creación y edición de videos profesionales.</p>
+        <p class="price">- S/. 20 (Perú) / CLP 9.800 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Música y Producción</h3>
+        <p>Grabación y edición de audio profesional.</p>
+        <p class="price">- S/. 20 (Perú) / CLP 9.500 (Chile)</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
+
+    <div class="product-card">
+        <h3>Otros Programas Especializados</h3>
+        <p>La mayoría de productos profesionales del mercado.</p>
+        <p class="price">- Consulte por el programa o licencia que busca</p>
+        <a href="https://wa.me/51945482880" target="_blank" class="whatsapp-btn">
+            <img src="whatsapp-icon.png" alt=""> Consultar
+        </a>
+    </div>
 </div>
 
-<a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
+<a href="https://wa.me/51945482880" target="_blank" class="whatsapp-float">
+    <img src="whatsapp-icon.png" alt="WhatsApp">
+</a>
 
 <script>
-const gif = document.getElementById('downloadGif');
-function handleDownload(url, counterUrl) {
-    fetch(counterUrl)
-    .then(res => res.json())
-    .then(data => {
-        console.log("Contador actualizado:", data);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = url.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    })
-    .catch(err => console.error("Error al incrementar contador:", err));
-}
-document.getElementById('btnWin').addEventListener('click', e => {
-    e.preventDefault(); gif.style.display='block';
-    handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe","https://api.counterapi.dev/v2/rs/Win/up");
-});
-document.getElementById('btnMac').addEventListener('click', e => {
-    e.preventDefault(); gif.style.display='block';
-    handleDownload("https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg","https://api.counterapi.dev/v2/rs/Mac/up");
-});
+    const gif = document.getElementById('downloadGif');
 
-document.querySelectorAll('.download-link').forEach(link => {
-    link.addEventListener('mousemove', e => {
-        const rect = e.target.getBoundingClientRect();
-        link.style.setProperty('--x', e.clientX - rect.left + 'px');
-        link.style.setProperty('--y', e.clientY - rect.top + 'px');
-        link.classList.add('active');
+    function handleDownload(url, counterUrl) {
+        fetch(counterUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log("Contador actualizado:", data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(err => console.error("Error al incrementar contador:", err));
+    }
+
+    document.getElementById('btnWin').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.exe",
+            "https://api.counterapi.dev/v2/rs/Win/up"
+        );
     });
-    link.addEventListener('mouseleave', () => { link.classList.remove('active'); });
-});
 
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const leftArrow = document.querySelector('.carousel-arrow-left');
-const rightArrow = document.querySelector('.carousel-arrow-right');
-let index = 0;
-function updateCarousel() { const width = track.clientWidth; track.style.transform = `translateX(-${index * width}px)`; }
-leftArrow.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; updateCarousel(); });
-rightArrow.addEventListener('click', () => { index = (index + 1) % slides.length; updateCarousel(); });
-window.addEventListener('resize', updateCarousel);
+    document.getElementById('btnMac').addEventListener('click', e => {
+        e.preventDefault();
+        gif.style.display = 'block';
+        handleDownload(
+            "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg",
+            "https://api.counterapi.dev/v2/rs/Mac/up"
+        );
+    });
+
+    document.querySelectorAll('.download-link').forEach(link => {
+        link.addEventListener('mousemove', e => {
+            const rect = e.target.getBoundingClientRect();
+            link.style.setProperty('--x', e.clientX - rect.left + 'px');
+            link.style.setProperty('--y', e.clientY - rect.top + 'px');
+            link.classList.add('active');
+        });
+        link.addEventListener('mouseleave', () => {
+            link.classList.remove('active');
+        });
+    });
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const leftArrow = document.querySelector('.carousel-arrow-left');
+    const rightArrow = document.querySelector('.carousel-arrow-right');
+    let index = 0;
+
+    function updateCarousel() {
+        const width = track.clientWidth;
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    leftArrow.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateCarousel();
+    });
+
+    rightArrow.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
 </script>
 
 <footer>
-<p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
-<p>© 2025 Robert Software. Todos los derechos reservados.</p>
-<p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: <a href="https://wa.me/51945482880" target="_blank">945482880</a> o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a></p>
+    <p><em>Asistencia remota profesional y confiable para sus sistemas y equipos, gestionada por Robert Software.</em></p>
+    <p>© 2025 Robert Software. Todos los derechos reservados.</p>
+    <p>Para soporte técnico o consultas, contáctenos a través de WhatsApp: 
+        <a href="https://wa.me/51945482880" target="_blank">945482880</a> 
+        o correo: <a href="mailto:rs.robertsoftware@gmail.com">rs.robertsoftware@gmail.com</a>
+    </p>
 </footer>
 
 </body>
