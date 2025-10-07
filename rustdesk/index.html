@@ -235,14 +235,30 @@
         text-align: left;
     }
 
-    /* TÍTULO NUEVO PARA PRODUCTOS */
+    /* TÍTULO MEJORADO PARA PRODUCTOS */
     .products-section-title {
-        font-size: 26px;
-        font-weight: bold;
-        color: #007bff;
-        max-width: 1100px;
-        margin: 30px auto 10px;
+        font-size: 28px;
+        font-weight: 800;
         text-align: center;
+        margin: 40px auto 25px;
+        position: relative;
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .products-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     /* Fondo degradado para todo el cuadro del producto */
@@ -365,8 +381,8 @@
 
     /* NUEVA SECCIÓN DE INFORMACIÓN */
     .rustdesk-info {
-        background: linear-gradient(135deg, #dbe6f5, #a8c4e6); /* degradado más claro */
-        color: #1a1a1a; /* texto oscuro para mejor legibilidad */
+        background: linear-gradient(135deg, #dbe6f5, #a8c4e6);
+        color: #1a1a1a;
         max-width: 900px;
         margin: 40px auto;
         padding: 30px 20px;
@@ -376,7 +392,7 @@
     }
 
     .rustdesk-info h2 {
-        color: #007bff; /* título azul más suave */
+        color: #007bff;
         font-size: 24px;
         margin-bottom: 15px;
     }
@@ -462,7 +478,7 @@
 </div>
 
 <!-- ==== SECCIÓN DE PRODUCTOS ==== -->
-<div class="products-section-title"><strong>Explore nuestros productos y servicios profesionales</strong></div>
+<div class="products-section-title">Explore nuestros productos y servicios profesionales</div>
 <div class="products-section">
     <div class="product-card">
         <h3>Software de Diseño</h3>
