@@ -203,6 +203,66 @@
     .carousel-arrow-right {
         right: 10px;
     }
+
+    /* Nueva sección productos */
+    .products-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 30px auto;
+        gap: 20px;
+    }
+
+    .product-column {
+        flex: 1;
+        max-width: 300px;
+        background-color: #f4f7fc;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow-y: auto;
+        max-height: 500px;
+    }
+
+    .product {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .product h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .product p {
+        font-size: 14px;
+        margin: 3px 0;
+    }
+
+    .buy-button {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 8px 12px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    .buy-button:hover {
+        background-color: #1e7e34;
+    }
+
+    .small-note {
+        font-size: 11px;
+        color: #555;
+        margin-left: 5px;
+    }
+
 </style>
 </head>
 <body>
@@ -245,6 +305,76 @@
         <img src="4.png" alt="RustDesk 4">
     </div>
     <button class="carousel-arrow carousel-arrow-right">&#10095;</button>
+</div>
+
+<!-- NUEVA SECCIÓN PRODUCTOS -->
+<div class="products-container">
+    <div class="product-column">
+        <!-- Oficina -->
+        <div class="product">
+            <h3>Software Ofimático</h3>
+            <p>Soluciones de oficina completas para documentos, hojas de cálculo y presentaciones.</p>
+            <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- Antivirus -->
+        <div class="product">
+            <h3>Antivirus</h3>
+            <p>Protección de tus equipos por 1 año contra virus, malware y amenazas online.</p>
+            <p>Precio Perú: S/. 35 | Chile: $15,000 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- PDF -->
+        <div class="product">
+            <h3>Gestión de PDF</h3>
+            <p>Edición, creación y conversión de archivos PDF de forma permanente.</p>
+            <p>Precio Perú: S/. 15 | Chile: $9,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- Suite Creatividad -->
+        <div class="product">
+            <h3>Software de Diseño y Creatividad</h3>
+            <p>Acceso a herramientas de diseño profesional con suscripción anual para proyectos creativos.</p>
+            <p>Precio Perú: S/. 195 / 1 año | Chile: $69,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+    </div>
+
+    <div class="product-column">
+        <!-- Edición de Video -->
+        <div class="product">
+            <h3>Edición de Video</h3>
+            <p>Programas de edición de video profesionales para crear contenido de calidad.</p>
+            <p>Precio Perú: S/. 20 | Chile: $9,800 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- Música -->
+        <div class="product">
+            <h3>Producción Musical</h3>
+            <p>Software para composición, mezcla y edición de audio profesional.</p>
+            <p>Precio Perú: S/. 20 | Chile: $9,500 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- Ingeniería CAD -->
+        <div class="product">
+            <h3>Suite de Ingeniería y CAD</h3>
+            <p>Herramientas profesionales de diseño y modelado 2D y 3D, suscripción vinculable a tu correo.</p>
+            <p>Precio Perú: S/. 65 / 1 año | S/. 85 / 2 años | Chile: $15,500 / $25,900 CLP</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Comprar ahora <span class="small-note">(WhatsApp)</span></a>
+        </div>
+
+        <!-- Otros Programas Especializados -->
+        <div class="product">
+            <h3>Otros Programas Especializados</h3>
+            <p>Disponemos de la mayoría de productos del mercado, consulte por el programa o licencia que necesita.</p>
+            <a href="https://wa.me/51945482880" target="_blank" class="buy-button">Consultar <span class="small-note">(WhatsApp)</span></a>
+        </div>
+    </div>
 </div>
 
 <script>
